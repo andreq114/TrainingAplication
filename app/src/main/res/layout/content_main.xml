@@ -12,23 +12,34 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="28dp"
         android:text="Training days"
-        android:textSize="30sp"
+        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="324dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="37dp"
-        android:text="Poniedziałek"
-        android:visibility="visible"
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="69dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:onClick="addDay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/createplusiconpng" />
+
+    <LinearLayout
+        android:id="@+id/linearDays"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:text="Poniedziałek"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"></LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
