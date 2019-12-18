@@ -1,6 +1,7 @@
 package com.example.trainingapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,12 +23,17 @@ import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -61,15 +67,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void newActivity(){
+        Intent intent = new Intent(this,exercises_activity.class);
+        startActivity(intent);
+    }
+
+
+
     public void addDay(View view){
-        final LinearLayout layout = (LinearLayout)findViewById(R.id.linearDays);
+
         final Button button1 = new Button(this);
+        final LinearLayout layout = findViewById(R.id.linearDays);
+        final EditText inputName = new EditText(this);
         button1.setMinimumHeight(200);
         button1.setTextSize(24);
-        
 
 
-        final EditText inputName = new EditText(this);                  //Dodawanie dni treningowych
+                          //Dodawanie dni treningowych
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("Enter routine name:")
@@ -79,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         button1.setText(inputName.getText());
                         layout.addView(button1);
+                        button1.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v) {
+                                newActivity();
+                            }
+                        });
 
                     }
                 })
