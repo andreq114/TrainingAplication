@@ -57,14 +57,20 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.kalkulator_BMI:
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.kalkulator_BMI) {
-            return true;
+                return true;
+            case R.id.kalkulator_BMR:
+
+                return true;
+            case R.id.kalkulator_tluszcz:
+
+                return true;
+            default:
+                return super.onContextItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
     }
 
     public void newActivity(){
