@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">TrainingApp</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_bmr_calc">activity_bmr_calc</string>
+    <string name="kalkulator_BMI">Oblicz BMI</string>
+    <string name="kalkulator_BMR">Oblicz BMR</string>
+    <string name="kalkulator_tluszcz">Oblicz tłuszcz</string>
 </resources>
