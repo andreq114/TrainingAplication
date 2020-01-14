@@ -26,11 +26,11 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
+        android:background="@drawable/createplusiconpng"
         android:onClick="addDay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearDays"
