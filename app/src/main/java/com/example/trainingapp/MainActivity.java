@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    int actualDays = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,12 +81,42 @@ public class MainActivity extends AppCompatActivity {
 
     public void addDay(View view){
 
-        final Button button1 = new Button(this);
-        final LinearLayout layout = findViewById(R.id.linearDays);
         final EditText inputName = new EditText(this);
-        button1.setMinimumHeight(200);
-        button1.setTextSize(24);
+        final Button button;
+        switch(actualDays){
+            case 0:
+                button = findViewById(R.id.day1);
+                actualDays++;
+                break;
+            case 1:
+                button = findViewById(R.id.day2);
+                actualDays++;
+                break;
+            case 2:
+                button = findViewById(R.id.day3);
+                actualDays++;
+                break;
+            case 3:
+                button = findViewById(R.id.day4);
+                actualDays++;
+                break;
+            case 4:
+                button = findViewById(R.id.day5);
+                actualDays++;
+                break;
+            case 5:
+                button = findViewById(R.id.day6);
+                actualDays++;
+                break;
+            case 6:
+                button = findViewById(R.id.day7);
+                actualDays++;
+                break;
+            default:
+                button = findViewById(R.id.day1);
+                actualDays++;
 
+        }
 
                           //Dodawanie dni treningowych
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -96,14 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 .setView(inputName)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        button1.setText(inputName.getText());
-                        layout.addView(button1);
-                        button1.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v) {
-                                newActivity();
-                            }
-                        });
+                        button.setText(inputName.getText());
+
 
                     }
                 })
