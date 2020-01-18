@@ -13,8 +13,9 @@
         android:layout_marginTop="32dp"
         android:text="Enter your waist (cm):"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/fatWeight"
-        tools:layout_editor_absoluteX="86dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fatWeight" />
 
     <TextView
         android:id="@+id/textView12"
@@ -30,13 +31,14 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="Enter your weight (kg):"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        tools:layout_editor_absoluteX="87dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
         android:id="@+id/fatWeight"
@@ -45,8 +47,9 @@
         android:layout_marginTop="23dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:layout_editor_absoluteX="99dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
         android:id="@+id/fatWaist"
@@ -55,18 +58,20 @@
         android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        tools:layout_editor_absoluteX="98dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Calculate"
         android:onClick="calculateFat"
-        app:layout_constraintTop_toBottomOf="@+id/fatWaist"
-        tools:layout_editor_absoluteX="158dp" />
+        android:text="Calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fatWaist" />
 
     <TextView
         android:id="@+id/fatPercLabel"
@@ -75,17 +80,18 @@
         android:layout_marginTop="44dp"
         android:text="Fat %:"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintEnd_toStartOf="@+id/fatResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
         android:id="@+id/fatResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
         android:layout_marginTop="43dp"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fatPercLabel"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
