@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.View;
 import android.view.Menu;
@@ -24,7 +25,7 @@ import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    SharedPreferences.Editor editor;
 
     int actualDays = 0;
     @Override
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        SharedPreferences shared = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        editor = shared.edit();
 
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.locale:
-
+                editor.putString("Language","pl");
+                editor.apply();
+                finish();
+                startActivity(new Intent(MainActivity.this,MainActivity.class));
             default:
                 return super.onContextItemSelected(item);
         }
