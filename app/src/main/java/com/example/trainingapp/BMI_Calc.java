@@ -19,7 +19,11 @@ public class BMI_Calc extends AppCompatActivity {
     }
 
     private String[] weightDescription =
-            {"Underweight", "Normal weight", "Overweight", "Obese", "Morbidly Obese"};
+            {getResources().getString(R.string.BMI_Discription_Underweight),
+                    getResources().getString(R.string.BMI_Discription_Normal_weight),
+                    getResources().getString(R.string.BMI_Discription_Overweight),
+                    getResources().getString(R.string.BMI_Discription_Obese),
+                    getResources().getString(R.string.BMI_Discription_Morbidly_Obese)};
 
     public void calculateBMI(View view) {
         TextView weight = findViewById(R.id.bmiWeight);

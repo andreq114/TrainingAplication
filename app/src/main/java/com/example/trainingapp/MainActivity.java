@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this,Fat_Calc.class);
                 startActivity(intent);
                 break;
+            case R.id.locale:
+
             default:
                 return super.onContextItemSelected(item);
         }

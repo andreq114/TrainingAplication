@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">TrainingApp</string>
-    <string name="action_settings">Settings</string>
-    <string name="kalkulator_BMI">Oblicz BMI</string>
-    <string name="kalkulator_BMR">Oblicz BMR</string>
-    <string name="kalkulator_tluszcz">Oblicz tłuszcz</string>
+    <string name="action_settings">Language</string>
+    <string name="kalkulator_BMI">Calculator BMI</string>
+    <string name="BMI_Label">BMI Calculator</string>
+    <string name="BMI_EnterHeight">Enter your growth(cm):</string>
+    <string name="Calculate">Calculate</string>
+    <string name="BMI_EnterWeight">Enter your weight (kg):</string>
+    <string name="kalkulator_BMR">Calculator BMR</string>
+    <string name="kalkulator_tluszcz">Calculator FAT</string>
+    <string name="calculatorAge">Enter your age</string>
+    <string name="EnterWaist">Enter your waist (cm):</string>
+    <string name="fatLabel">Fat %:</string>
+    <string name="BMI_Discription_Underweight">Underweight</string>
+    <string name="BMI_Discription_Normal_weight">Normal weight</string>
+    <string name="BMI_Discription_Overweight">Overweight</string>
+    <string name="BMI_Discription_Obese">Obese</string>
+    <string name="BMI_Discription_Morbidly_Obese">Morbidly Obese</string>
 </resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplikacja Treningowa</string>
+    <string name="BMI_EnterHeight">Wprowadź swój wzrost(cm)</string>
+    <string name="BMI_EnterWeight">Wprowadź swoją wagę (kg)</string>
+    <string name="BMI_Label">Kalkulator BMI</string>
+    <string name="Calculate">Oblicz</string>
+    <string name="action_settings">Język</string>
+    <string name="kalkulator_BMI">Kalkulator BMI</string>
+    <string name="kalkulator_BMR">Kalkulator BMR</string>
+    <string name="kalkulator_tluszcz">Kalkulator tkanki tłuszczowej</string>
+    <string name="calculatorAge">Wprowadź swój wiek</string>
+    <string name="EnterWaist">Wprowadź swój obwód w pasie(cm)</string>
+    <string name="fatLabel">Tłuszcz %:</string>
+    <string name="BMI_Discription_Underweight">Niedowaga</string>
+    <string name="BMI_Discription_Normal_weight">Waga prawidłowa</string>
+    <string name="BMI_Discription_Overweight">Nadwaga</string>
+    <string name="BMI_Discription_Obese">Otyłość</string>
+    <string name="BMI_Discription_Morbidly_Obese">Otyłość alarmowa</string>
+</resources>
