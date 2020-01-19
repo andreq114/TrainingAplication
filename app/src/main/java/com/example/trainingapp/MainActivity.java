@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
 
     int actualDays = 0;
+    int choosedDay = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,9 +91,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void newActivity(){
+    public void newActivity(int choosedDay){
         Intent intent = new Intent(this,exercises_activity.class);
+        intent.putExtra("Chosed",choosedDay);
         startActivity(intent);
+
     }
 
 
@@ -106,36 +109,43 @@ public class MainActivity extends AppCompatActivity {
                 button = findViewById(R.id.day1);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 0;
                 break;
             case 1:
                 button = findViewById(R.id.day2);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 1;
                 break;
             case 2:
                 button = findViewById(R.id.day3);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 2;
                 break;
             case 3:
                 button = findViewById(R.id.day4);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 3;
                 break;
             case 4:
                 button = findViewById(R.id.day5);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 4;
                 break;
             case 5:
                 button = findViewById(R.id.day6);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 5;
                 break;
             case 6:
                 button = findViewById(R.id.day7);
                 actualDays++;
                 button.setVisibility(View.VISIBLE);
+                choosedDay = 6;
                 break;
             default:
                 button = findViewById(R.id.day1);
@@ -152,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         button.setText(inputName.getText());
-
+                        newActivity(choosedDay);
 
                     }
                 })
@@ -178,9 +188,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(day + " " + button.getText().toString());
             }
             i++;
-            editor.apply();
-        }
 
+        }
+        editor.putInt("actualSetDays", actualDays);
+        editor.apply();
     }
 
     @Override
@@ -201,5 +212,6 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(day + " " + txt);
             i++;
         }
+        actualDays = sharedPref.getInt("actualSetDays", 0);
     }
 }
