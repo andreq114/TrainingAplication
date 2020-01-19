@@ -89,9 +89,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="49dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/exercisesLabel"
         android:textSize="36sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,7 +103,9 @@
         android:layout_height="62dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="34dp"
         android:onClick="addExercise"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/createplusiconpng" />

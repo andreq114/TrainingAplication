@@ -19,4 +19,5 @@
     <string name="BMI_Discription_Morbidly_Obese">Otyłość alarmowa</string>
     <string name="dayLabel">Dzień treningowy</string>
     <string name="exercisesLabel">Ćwiczenia:</string>
+    <string name="exception">Błąd! Wprowadź lub popraw dane.</string>
 </resources>

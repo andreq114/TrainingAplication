@@ -18,4 +18,5 @@
     <string name="BMI_Discription_Morbidly_Obese">Morbidly Obese</string>
     <string name="dayLabel">Training days</string>
     <string name="exercisesLabel">Exercises:</string>
+    <string name="exception">Error! Enter or correct the data.</string>
 </resources>
