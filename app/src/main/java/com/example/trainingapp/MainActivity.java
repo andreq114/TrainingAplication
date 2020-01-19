@@ -23,8 +23,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<Button> buttons;
     SharedPreferences.Editor editor;
 
     int actualDays = 0;
@@ -96,30 +99,37 @@ public class MainActivity extends AppCompatActivity {
             case 0:
                 button = findViewById(R.id.day1);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             case 1:
                 button = findViewById(R.id.day2);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             case 2:
                 button = findViewById(R.id.day3);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             case 3:
                 button = findViewById(R.id.day4);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             case 4:
                 button = findViewById(R.id.day5);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             case 5:
                 button = findViewById(R.id.day6);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             case 6:
                 button = findViewById(R.id.day7);
                 actualDays++;
+                button.setVisibility(View.VISIBLE);
                 break;
             default:
                 button = findViewById(R.id.day1);
@@ -148,4 +158,13 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedState) {
+        super.onRestoreInstanceState(savedState);
+    }
 }
