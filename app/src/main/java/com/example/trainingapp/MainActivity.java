@@ -74,11 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this,Fat_Calc.class);
                 startActivity(intent);
                 break;
-            case R.id.locale:
-                editor.putString("Language","pl");
-                editor.apply();
-                finish();
-                startActivity(new Intent(MainActivity.this,MainActivity.class));
             default:
                 return super.onContextItemSelected(item);
         }

@@ -16,4 +16,6 @@
     <string name="BMI_Discription_Overweight">Overweight</string>
     <string name="BMI_Discription_Obese">Obese</string>
     <string name="BMI_Discription_Morbidly_Obese">Morbidly Obese</string>
+    <string name="dayLabel">Training days</string>
+    <string name="exercisesLabel">Exercises:</string>
 </resources>

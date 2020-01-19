@@ -16,14 +16,15 @@ public class BMI_Calc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi__calc);
+        weightDescription = new String[5];
+        weightDescription[0]=getResources().getString(R.string.BMI_Discription_Underweight);
+                weightDescription[1]=getResources().getString(R.string.BMI_Discription_Normal_weight);
+                weightDescription[2]=getResources().getString(R.string.BMI_Discription_Overweight);
+                weightDescription[3]=getResources().getString(R.string.BMI_Discription_Obese);
+                weightDescription[4]= getResources().getString(R.string.BMI_Discription_Morbidly_Obese);
     }
 
-    private String[] weightDescription =
-            {getResources().getString(R.string.BMI_Discription_Underweight),
-                    getResources().getString(R.string.BMI_Discription_Normal_weight),
-                    getResources().getString(R.string.BMI_Discription_Overweight),
-                    getResources().getString(R.string.BMI_Discription_Obese),
-                    getResources().getString(R.string.BMI_Discription_Morbidly_Obese)};
+    private String[] weightDescription;
 
     public void calculateBMI(View view) {
         TextView weight = findViewById(R.id.bmiWeight);
@@ -49,10 +50,10 @@ public class BMI_Calc extends AppCompatActivity {
             desc.setTextColor(Color.RED);
         } else if (bmi >= 18.5 && bmi < 25) {
             description = weightDescription[1];
-            desc.setTextColor(Color.BLUE);
+            desc.setTextColor(Color.GREEN);
         } else if (bmi >= 25 && bmi < 30) {
             description = weightDescription[2];
-            desc.setTextColor(Color.GREEN);
+            desc.setTextColor(Color.BLUE);
         } else if (bmi >= 30 && bmi < 40) {
             description = weightDescription[3];
             desc.setTextColor(Color.YELLOW);

@@ -17,4 +17,6 @@
     <string name="BMI_Discription_Overweight">Nadwaga</string>
     <string name="BMI_Discription_Obese">Otyłość</string>
     <string name="BMI_Discription_Morbidly_Obese">Otyłość alarmowa</string>
+    <string name="dayLabel">Dzień treningowy</string>
+    <string name="exercisesLabel">Ćwiczenia:</string>
 </resources>
