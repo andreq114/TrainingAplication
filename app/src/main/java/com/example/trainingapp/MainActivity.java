@@ -91,69 +91,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void newActivity(int choosedDay){
+    public void newActivity(int choosed){
         Intent intent = new Intent(this,exercises_activity.class);
-        intent.putExtra("Chosed",choosedDay);
+        intent.putExtra("Chosed",choosed);
         startActivity(intent);
 
     }
 
-
-
-    public void addDay(View view){
-
+    void addDayName(Button button){
         final EditText inputName = new EditText(this);
-        final Button button;
-        switch(actualDays){
-            case 0:
-                button = findViewById(R.id.day1);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 0;
-                break;
-            case 1:
-                button = findViewById(R.id.day2);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 1;
-                break;
-            case 2:
-                button = findViewById(R.id.day3);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 2;
-                break;
-            case 3:
-                button = findViewById(R.id.day4);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 3;
-                break;
-            case 4:
-                button = findViewById(R.id.day5);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 4;
-                break;
-            case 5:
-                button = findViewById(R.id.day6);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 5;
-                break;
-            case 6:
-                button = findViewById(R.id.day7);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
-                choosedDay = 6;
-                break;
-            default:
-                button = findViewById(R.id.day1);
-                actualDays++;
-
-        }
-
-                          //Dodawanie dni treningowych
+        final Button button1 = button;
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("Enter routine name:")
@@ -161,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
                 .setView(inputName)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        button.setText(inputName.getText());
+                        button1.setText(inputName.getText());
+                        button1.setVisibility(View.VISIBLE);
                         newActivity(choosedDay);
 
                     }
@@ -172,6 +120,75 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         alert.show();
+    }
+
+
+    public void addDay(View view){
+
+        final Button button;
+        switch(actualDays){
+            case 0:
+                button = findViewById(R.id.day1);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 0;
+                addDayName(button);
+                break;
+            case 1:
+                button = findViewById(R.id.day2);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 1;
+                addDayName(button);
+                break;
+            case 2:
+                button = findViewById(R.id.day3);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 2;
+                addDayName(button);
+                break;
+            case 3:
+                button = findViewById(R.id.day4);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 3;
+                addDayName(button);
+                break;
+            case 4:
+                button = findViewById(R.id.day5);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 4;
+                addDayName(button);
+                break;
+            case 5:
+                button = findViewById(R.id.day6);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 5;
+                addDayName(button);
+                break;
+            case 6:
+                button = findViewById(R.id.day7);
+                actualDays++;
+                button.setVisibility(View.VISIBLE);
+                choosedDay = 6;
+                addDayName(button);
+                break;
+            default:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setMessage("Osiągnięto maksymalną liczbe dni treningowych.")
+                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                alert.show();
+
+        }
+
+
     }
 
     @Override
