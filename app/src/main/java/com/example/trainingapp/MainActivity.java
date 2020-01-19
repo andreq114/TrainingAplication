@@ -1,5 +1,6 @@
 package com.example.trainingapp;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,9 +39,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferences shared = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        editor = shared.edit();
-
+        buttons = new ArrayList<>();
+        buttons.add((Button)findViewById(R.id.day1));
+        buttons.add((Button)findViewById(R.id.day2));
+        buttons.add((Button)findViewById(R.id.day3));
+        buttons.add((Button)findViewById(R.id.day4));
+        buttons.add((Button)findViewById(R.id.day5));
+        buttons.add((Button)findViewById(R.id.day6));
+        buttons.add((Button)findViewById(R.id.day7));
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,12 +165,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        Short i = 1;
+        for(Button button : buttons){
+            String day = "Day";
+            day += i.toString();
+            if(button.isShown()){
+                editor.putString(day, button.getText().toString());
+                System.out.println(day + " " + button.getText().toString());
+            }
+            i++;
+            editor.apply();
+        }
+
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedState) {
-        super.onRestoreInstanceState(savedState);
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
+        Short i = 1;
+
+        for(Button button : buttons) {
+            String day = "Day";
+            day += i.toString();
+            String txt = sharedPref.getString(day, "");
+            if(txt.isEmpty())
+                break;
+            button.setVisibility(View.VISIBLE);
+            button.setText(txt);
+            System.out.println(day + " " + txt);
+            i++;
+        }
     }
 }
