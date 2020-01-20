@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         });
                         day.nameButton = inputName.getText().toString();
                         dayData.add(day);
+                        setDays++;
                         newActivity(day);
                     }
                 })
@@ -127,37 +128,30 @@ public class MainActivity extends AppCompatActivity {
         switch(setDays){
             case 0:
                 button = findViewById(R.id.day1);
-                setDays++;
                 addDayName(button);
                 break;
             case 1:
                 button = findViewById(R.id.day2);
-                setDays++;
                 addDayName(button);
                 break;
             case 2:
                 button = findViewById(R.id.day3);
-                setDays++;
                 addDayName(button);
                 break;
             case 3:
                 button = findViewById(R.id.day4);
-                setDays++;
                 addDayName(button);
                 break;
             case 4:
                 button = findViewById(R.id.day5);
-                setDays++;
                 addDayName(button);
                 break;
             case 5:
                 button = findViewById(R.id.day6);
-                setDays++;
                 addDayName(button);
                 break;
             case 6:
                 button = findViewById(R.id.day7);
-                setDays++;
                 addDayName(button);
                 break;
             default:
@@ -209,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
         DayData toDelete = null;
         String name = getIntent().getStringExtra("Deleted");
         deletedData = new Gson().fromJson(name, DayData.class);
+        getIntent().putExtra("Deleted",(String)null);
         if(deletedData!=null) {
             for (DayData day : dayData) {
                 if (day.nameButton.equals(deletedData.nameButton)) {
@@ -221,8 +216,6 @@ public class MainActivity extends AppCompatActivity {
             setDays--;
             System.out.println(setDays + " wczytanie usuniecie");
         }
-        System.out.println(dayData);
-        System.out.println(dayData.size());
         Short i = 0;
         for(Button button : buttons) {
             try {
