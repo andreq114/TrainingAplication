@@ -6,32 +6,29 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Button> buttons;
-    SharedPreferences.Editor editor;
-
-    int actualDays = 0;
+    ArrayList<DayData> dayData;
+    int setDays = 0;
     int choosedDay = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        dayData = new ArrayList<DayData>();
         buttons = new ArrayList<>();
         buttons.add((Button)findViewById(R.id.day1));
         buttons.add((Button)findViewById(R.id.day2));
@@ -48,14 +46,6 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button)findViewById(R.id.day5));
         buttons.add((Button)findViewById(R.id.day6));
         buttons.add((Button)findViewById(R.id.day7));
-        /*FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
     @Override
@@ -95,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,exercises_activity.class);
         intent.putExtra("Chosed",choosed);
         startActivity(intent);
-
     }
 
     void addDayName(Button button){
         final EditText inputName = new EditText(this);
         final Button button1 = button;
+        final DayData day = new DayData();
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("Enter routine name:")
@@ -110,8 +100,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         button1.setText(inputName.getText());
                         button1.setVisibility(View.VISIBLE);
+                        day.nameButton = inputName.getText().toString();
+                        dayData.add(day);
                         newActivity(choosedDay);
-
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -126,53 +117,46 @@ public class MainActivity extends AppCompatActivity {
     public void addDay(View view){
 
         final Button button;
-        switch(actualDays){
+        switch(setDays){
             case 0:
                 button = findViewById(R.id.day1);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 0;
                 addDayName(button);
                 break;
             case 1:
                 button = findViewById(R.id.day2);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 1;
                 addDayName(button);
                 break;
             case 2:
                 button = findViewById(R.id.day3);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 2;
                 addDayName(button);
                 break;
             case 3:
                 button = findViewById(R.id.day4);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 3;
                 addDayName(button);
                 break;
             case 4:
                 button = findViewById(R.id.day5);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 4;
                 addDayName(button);
                 break;
             case 5:
                 button = findViewById(R.id.day6);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 5;
                 addDayName(button);
                 break;
             case 6:
                 button = findViewById(R.id.day7);
-                actualDays++;
-                button.setVisibility(View.VISIBLE);
+                setDays++;
                 choosedDay = 6;
                 addDayName(button);
                 break;
@@ -196,18 +180,12 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        Short i = 1;
-        for(Button button : buttons){
-            String day = "Day";
-            day += i.toString();
-            if(button.isShown()){
-                editor.putString(day, button.getText().toString());
-                System.out.println(day + " " + button.getText().toString());
-            }
-            i++;
 
-        }
-        editor.putInt("actualSetDays", actualDays);
+        List<DayData> lista = new ArrayList<DayData>();
+        lista.addAll(dayData);
+        String json = new Gson().toJson(lista);
+        editor.putString("dayData",json);
+        editor.putInt("actualSetDays", setDays);
         editor.apply();
     }
 
@@ -215,20 +193,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-
-        Short i = 1;
-
+        Gson gson = new Gson();
+        String txt = sharedPref.getString("dayData", "");
+        if(txt.isEmpty())
+            return;
+        List<DayData> text = Arrays.asList(gson.fromJson(txt, DayData[].class));
+        ArrayList<DayData> lista = new ArrayList<>();
+        lista.addAll(text);
+        Short i = 0;
         for(Button button : buttons) {
-            String day = "Day";
-            day += i.toString();
-            String txt = sharedPref.getString(day, "");
-            if(txt.isEmpty())
+            try {
+                button.setText(lista.get(i).nameButton);
+                button.setVisibility(View.VISIBLE);
+                i++;
+            }catch(Exception ex){
                 break;
-            button.setVisibility(View.VISIBLE);
-            button.setText(txt);
-            System.out.println(day + " " + txt);
-            i++;
+            }
         }
-        actualDays = sharedPref.getInt("actualSetDays", 0);
+        setDays = sharedPref.getInt("actualSetDays", 0);
     }
 }

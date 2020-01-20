@@ -10,14 +10,27 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 public class exercises_activity extends AppCompatActivity {
+
+    int setExercises = 0;
+    int chosedExercises = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_activity);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     public void newActivity(){
@@ -27,15 +40,9 @@ public class exercises_activity extends AppCompatActivity {
 
 
 
-    public void addExercise(View view){
+    public void addExercise(final Button button){
 
-        final Button button = new Button(this);
-        final LinearLayout layout = findViewById(R.id.linearExercises);
         final EditText inputName = new EditText(this);
-        button.setMinimumHeight(200);
-        button.setTextSize(24);
-
-
         //Dodawanie nowych cwiczen
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -45,7 +52,6 @@ public class exercises_activity extends AppCompatActivity {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         button.setText(inputName.getText());
-                        layout.addView(button);
                         button.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v) {
@@ -62,5 +68,70 @@ public class exercises_activity extends AppCompatActivity {
                 });
         alert.show();
     }
+    public void addExcercise(View view){
 
+        final Button button;
+        switch(setExercises){
+            case 0:
+                button = findViewById(R.id.ex1);
+                setExercises++;
+                chosedExercises = 0;
+                addExercise(button);
+                break;
+            case 1:
+                button = findViewById(R.id.ex2);
+                setExercises++;
+                chosedExercises = 1;
+                addExercise(button);
+                break;
+            case 2:
+                button = findViewById(R.id.ex3);
+                setExercises++;
+                chosedExercises = 2;
+                addExercise(button);
+                break;
+            case 3:
+                button = findViewById(R.id.ex4);
+                setExercises++;
+                chosedExercises = 3;
+                addExercise(button);
+                break;
+            case 4:
+                button = findViewById(R.id.ex5);
+                setExercises++;
+                chosedExercises = 4;
+                addExercise(button);
+                break;
+            case 5:
+                button = findViewById(R.id.ex6);
+                setExercises++;
+                chosedExercises = 5;
+                addExercise(button);
+                break;
+            case 6:
+                button = findViewById(R.id.ex7);
+                setExercises++;
+                chosedExercises = 6;
+                addExercise(button);
+                break;
+            case 7:
+                button = findViewById(R.id.ex8);
+                setExercises++;
+                chosedExercises = 7;
+                addExercise(button);
+                break;
+            default:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setMessage("Osiągnięto maksymalną liczbe cwiczen.")
+                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                alert.show();
+
+        }
+
+
+    }
 }
