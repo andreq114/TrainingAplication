@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 alert.show();
 
         }
-
+    System.out.println(setDays + " switcher");
 
     }
 
@@ -187,12 +187,16 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("dayData",json);
         editor.putInt("actualSetDays", setDays);
         editor.apply();
+        System.out.println(setDays + " zapis");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        dayData.clear();
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        setDays = sharedPref.getInt("actualSetDays", 0);
+        System.out.println(setDays + " wczytanie");
         Gson gson = new Gson();
         String txt = sharedPref.getString("dayData", "");
         if(txt.isEmpty())
@@ -201,9 +205,29 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<DayData> lista = new ArrayList<>();
         lista.addAll(text);
         dayData = lista;
+        DayData deletedData;
+        DayData toDelete = null;
+        String name = getIntent().getStringExtra("Deleted");
+        deletedData = new Gson().fromJson(name, DayData.class);
+        if(deletedData!=null) {
+            for (DayData day : dayData) {
+                if (day.nameButton.equals(deletedData.nameButton)) {
+                    toDelete = day;
+                    break;
+                }
+            }
+            if (toDelete != null)
+                dayData.remove(toDelete);
+            setDays--;
+            System.out.println(setDays + " wczytanie usuniecie");
+        }
+        System.out.println(dayData);
+        System.out.println(dayData.size());
         Short i = 0;
         for(Button button : buttons) {
             try {
+                button.setOnClickListener(null);
+                button.setVisibility(View.INVISIBLE);
                 final DayData day = dayData.get(i);
                 button.setText(day.nameButton);
                 button.setVisibility(View.VISIBLE);
@@ -219,6 +243,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }
-        setDays = sharedPref.getInt("actualSetDays", 0);
+
     }
 }

@@ -23,7 +23,7 @@ public class exercises_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_activity);
-        String name = getIntent().getStringExtra("name");
+        String name = getIntent().getStringExtra("Chosed");
         dayData = new Gson().fromJson(name, DayData.class);
     }
 
@@ -42,7 +42,12 @@ public class exercises_activity extends AppCompatActivity {
         startActivity(intent2);
     }
 
-
+    public void deleteDay(View view){
+        Intent intent = new Intent(this,MainActivity.class);
+        String json = new Gson().toJson(dayData);
+        intent.putExtra("Deleted", json);
+        startActivity(intent);
+    }
 
     public void addExercise(final Button button){
 
