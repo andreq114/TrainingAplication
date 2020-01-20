@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
     ArrayList<DayData> dayData;
     int setDays = 0;
-    int choosedDay = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void newActivity(int choosed){
+    public void newActivity(DayData choosed){
         Intent intent = new Intent(this,exercises_activity.class);
-        intent.putExtra("Chosed",choosed);
+        String json = new Gson().toJson(choosed);
+        intent.putExtra("Chosed", json);
         startActivity(intent);
     }
 
@@ -100,9 +100,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         button1.setText(inputName.getText());
                         button1.setVisibility(View.VISIBLE);
+                        button1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // Add your code in here!
+                                newActivity(day);
+                            }
+                        });
                         day.nameButton = inputName.getText().toString();
                         dayData.add(day);
-                        newActivity(choosedDay);
+                        newActivity(day);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -121,43 +128,36 @@ public class MainActivity extends AppCompatActivity {
             case 0:
                 button = findViewById(R.id.day1);
                 setDays++;
-                choosedDay = 0;
                 addDayName(button);
                 break;
             case 1:
                 button = findViewById(R.id.day2);
                 setDays++;
-                choosedDay = 1;
                 addDayName(button);
                 break;
             case 2:
                 button = findViewById(R.id.day3);
                 setDays++;
-                choosedDay = 2;
                 addDayName(button);
                 break;
             case 3:
                 button = findViewById(R.id.day4);
                 setDays++;
-                choosedDay = 3;
                 addDayName(button);
                 break;
             case 4:
                 button = findViewById(R.id.day5);
                 setDays++;
-                choosedDay = 4;
                 addDayName(button);
                 break;
             case 5:
                 button = findViewById(R.id.day6);
                 setDays++;
-                choosedDay = 5;
                 addDayName(button);
                 break;
             case 6:
                 button = findViewById(R.id.day7);
                 setDays++;
-                choosedDay = 6;
                 addDayName(button);
                 break;
             default:
@@ -200,11 +200,20 @@ public class MainActivity extends AppCompatActivity {
         List<DayData> text = Arrays.asList(gson.fromJson(txt, DayData[].class));
         ArrayList<DayData> lista = new ArrayList<>();
         lista.addAll(text);
+        dayData = lista;
         Short i = 0;
         for(Button button : buttons) {
             try {
-                button.setText(lista.get(i).nameButton);
+                final DayData day = dayData.get(i);
+                button.setText(day.nameButton);
                 button.setVisibility(View.VISIBLE);
+                button.setOnClickListener(new View.OnClickListener() {
+                                              @Override
+                                              public void onClick(View v) {
+                                                  // Add your code in here!
+                                                  newActivity(day);
+                                              }
+                                          });
                 i++;
             }catch(Exception ex){
                 break;

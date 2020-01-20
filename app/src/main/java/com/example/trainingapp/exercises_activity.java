@@ -11,16 +11,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 public class exercises_activity extends AppCompatActivity {
 
     int setExercises = 0;
     int chosedExercises = 0;
+    DayData dayData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_activity);
-
+        String name = getIntent().getStringExtra("name");
+        dayData = new Gson().fromJson(name, DayData.class);
     }
 
     @Override
