@@ -3,48 +3,119 @@ package com.example.trainingapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class exercises_activity extends AppCompatActivity {
 
     int setExercises = 0;
-    int chosedExercises = 0;
-    DayData dayData;
-
+    ArrayList<Button> buttons;
+    DayData useddayData;
+    ArrayList<DayData> dayData;
+    String name2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_activity);
         String name = getIntent().getStringExtra("Chosed");
-        dayData = new Gson().fromJson(name, DayData.class);
+        useddayData = new Gson().fromJson(name, DayData.class);
+
+
+        buttons = new ArrayList<>();
+        buttons.add((Button)findViewById(R.id.ex1));
+        buttons.add((Button)findViewById(R.id.ex2));
+        buttons.add((Button)findViewById(R.id.ex3));
+        buttons.add((Button)findViewById(R.id.ex4));
+        buttons.add((Button)findViewById(R.id.ex5));
+        buttons.add((Button)findViewById(R.id.ex6));
+        buttons.add((Button)findViewById(R.id.ex7));
+        buttons.add((Button)findViewById(R.id.ex8));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        TextView label = findViewById(R.id.exerciseLabel);
+        label.setText(useddayData.nameButton);
+        Short i = 0;
+        ArrayList<String> lista = useddayData.exercises;
+        for(Button button : buttons) {
+            try {
+                System.out.println("Poszlo");
+                button.setOnClickListener(null);
+                button.setVisibility(View.INVISIBLE);
+                String excercise = lista.get(i);
+                button.setText(excercise);
+                button.setVisibility(View.VISIBLE);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Add your code in here!
+                        newActivity(useddayData);
+                    }
+                });
+                i++;
+
+            }catch(Exception ex){
+                break;
+            }
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        useddayData.excercisesSet=setExercises;
+        Gson gson = new Gson();
+        name2 = getIntent().getStringExtra("dayData");
+        if(name2.isEmpty()){
+            System.out.println("winowajca");return;}
+        List<DayData> text = Arrays.asList(gson.fromJson(name2, DayData[].class));
+        ArrayList<DayData> lista = new ArrayList<>();
+        lista.addAll(text);
+        dayData = lista;
+        for (DayData day : dayData) {
+            System.out.println(day.id+" uzywane; "+useddayData.id);
+            if (day.id==useddayData.id) {
+                day.exercises=useddayData.exercises;
+                System.out.println(" znalazl "+day.exercises);
+                break;
+            }
+        }
+        List<DayData> lista1 = new ArrayList<DayData>();
+        lista1.addAll(dayData);
+        String json = new Gson().toJson(lista1);
+        editor.putString("dayData",json);
+        editor.apply();
     }
 
-    public void newActivity(){
+    public void newActivity(DayData dayData){
         Intent intent2 = new Intent(this,ExDisp_activity.class);
+        String json = new Gson().toJson(dayData);
+        intent2.putExtra("dayData_Excercises", json);
         startActivity(intent2);
     }
 
     public void deleteDay(View view){
         Intent intent = new Intent(this,MainActivity.class);
-        String json = new Gson().toJson(dayData);
+        String json = new Gson().toJson(useddayData);
         intent.putExtra("Deleted", json);
         startActivity(intent);
     }
@@ -64,9 +135,12 @@ public class exercises_activity extends AppCompatActivity {
                         button.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v) {
-                                newActivity();
+                                newActivity(useddayData);
                             }
                         });
+                        setExercises++;
+                        useddayData.exercises.add(inputName.getText().toString());
+                        newActivity(useddayData);
 
                     }
                 })
@@ -83,50 +157,35 @@ public class exercises_activity extends AppCompatActivity {
         switch(setExercises){
             case 0:
                 button = findViewById(R.id.ex1);
-                setExercises++;
-                chosedExercises = 0;
+
                 addExercise(button);
                 break;
             case 1:
                 button = findViewById(R.id.ex2);
-                setExercises++;
-                chosedExercises = 1;
                 addExercise(button);
                 break;
             case 2:
                 button = findViewById(R.id.ex3);
-                setExercises++;
-                chosedExercises = 2;
                 addExercise(button);
                 break;
             case 3:
                 button = findViewById(R.id.ex4);
-                setExercises++;
-                chosedExercises = 3;
                 addExercise(button);
                 break;
             case 4:
                 button = findViewById(R.id.ex5);
-                setExercises++;
-                chosedExercises = 4;
                 addExercise(button);
                 break;
             case 5:
                 button = findViewById(R.id.ex6);
-                setExercises++;
-                chosedExercises = 5;
                 addExercise(button);
                 break;
             case 6:
                 button = findViewById(R.id.ex7);
-                setExercises++;
-                chosedExercises = 6;
                 addExercise(button);
                 break;
             case 7:
                 button = findViewById(R.id.ex8);
-                setExercises++;
-                chosedExercises = 7;
                 addExercise(button);
                 break;
             default:

@@ -104,7 +104,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="34dp"
-        android:onClick="addExercise"
+        android:onClick="addExcercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"
@@ -120,5 +120,15 @@
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="47dp" />
+
+    <TextView
+        android:id="@+id/exerciseLabel"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="163dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

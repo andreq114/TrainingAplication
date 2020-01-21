@@ -84,13 +84,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,exercises_activity.class);
         String json = new Gson().toJson(choosed);
         intent.putExtra("Chosed", json);
+        List<DayData> lista1 = new ArrayList<DayData>();
+        lista1.addAll(dayData);
+        String json1 = new Gson().toJson(lista1);
+        intent.putExtra("dayData",json1);
         startActivity(intent);
     }
 
     void addDayName(Button button){
         final EditText inputName = new EditText(this);
         final Button button1 = button;
-        final DayData day = new DayData();
+        final DayData day = new DayData(true);
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("Enter routine name:")
@@ -180,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
         String json = new Gson().toJson(lista);
         editor.putString("dayData",json);
         editor.putInt("actualSetDays", setDays);
+        editor.putInt("licznikID", DayData.licznikId);
         editor.apply();
         System.out.println(setDays + " zapis");
     }
@@ -190,11 +195,12 @@ public class MainActivity extends AppCompatActivity {
         dayData.clear();
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         setDays = sharedPref.getInt("actualSetDays", 0);
+        DayData.licznikId = sharedPref.getInt("licznikID", 0);
         System.out.println(setDays + " wczytanie");
         Gson gson = new Gson();
         String txt = sharedPref.getString("dayData", "");
-        if(txt.isEmpty())
-            return;
+        if(txt.isEmpty()){
+            System.out.println("winowajca2");return;}
         List<DayData> text = Arrays.asList(gson.fromJson(txt, DayData[].class));
         ArrayList<DayData> lista = new ArrayList<>();
         lista.addAll(text);
@@ -203,10 +209,12 @@ public class MainActivity extends AppCompatActivity {
         DayData toDelete = null;
         String name = getIntent().getStringExtra("Deleted");
         deletedData = new Gson().fromJson(name, DayData.class);
+
         getIntent().putExtra("Deleted",(String)null);
         if(deletedData!=null) {
+            System.out.println(deletedData.id + " i licznik" + DayData.licznikId);
             for (DayData day : dayData) {
-                if (day.nameButton.equals(deletedData.nameButton)) {
+                if (day.id==deletedData.id) {
                     toDelete = day;
                     break;
                 }
