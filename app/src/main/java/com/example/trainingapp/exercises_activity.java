@@ -114,10 +114,23 @@ public class exercises_activity extends AppCompatActivity {
     }
 
     public void deleteDay(View view){
-        Intent intent = new Intent(this,MainActivity.class);
-        String json = new Gson().toJson(useddayData);
-        intent.putExtra("Deleted", json);
-        startActivity(intent);
+        final Intent intent = new Intent(this,MainActivity.class);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage("Do you really want to delete this day?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        String json = new Gson().toJson(useddayData);
+                        intent.putExtra("Deleted", json);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        alert.show();
     }
 
     public void addExercise(final Button button){
