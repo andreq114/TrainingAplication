@@ -20,4 +20,8 @@
     <string name="dayLabel">Dzień treningowy</string>
     <string name="exercisesLabel">Ćwiczenia:</string>
     <string name="exception">Błąd! Wprowadź lub popraw dane.</string>
+    <string name="confirmDialog">OK</string>
+    <string name="cancelDialog">Wycofaj</string>
+    <string name="maxDaysAlert">Osiągnięto maksymalną liczbe dni treningowych.</string>
+    <string name="maxExercisesAlert">Osiągnięto maksymalną liczbę ćwiczeń.</string>
 </resources>

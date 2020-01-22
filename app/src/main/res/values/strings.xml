@@ -19,4 +19,8 @@
     <string name="dayLabel">Training days</string>
     <string name="exercisesLabel">Exercises:</string>
     <string name="exception">Error! Enter or correct the data.</string>
+    <string name="confirmDialog">OK</string>
+    <string name="cancelDialog">Cancel</string>
+    <string name="maxDaysAlert">You have set the maximum amount training day.</string>
+    <string name="maxExercisesAlert">You have set the maximum amount exercises.</string>
 </resources>

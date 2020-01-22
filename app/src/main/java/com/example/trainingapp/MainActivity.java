@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setMessage("Enter routine name:")
                 .setCancelable(false)
                 .setView(inputName)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         button1.setText(inputName.getText());
                         button1.setVisibility(View.VISIBLE);
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         newActivity(day);
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getResources().getString(R.string.cancelDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
@@ -160,8 +160,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default:
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setMessage("Osiągnięto maksymalną liczbe dni treningowych.")
-                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                alert.setMessage(getResources().getString(R.string.maxDaysAlert))
+                        .setNegativeButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
                             }

@@ -26,7 +26,6 @@ public class exercises_activity extends AppCompatActivity {
     ArrayList<Button> buttons;
     DayData useddayData;
     ArrayList<DayData> dayData;
-    String name2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,14 +118,14 @@ public class exercises_activity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage("Do you really want to delete this day?")
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         String json = new Gson().toJson(useddayData);
                         intent.putExtra("Deleted", json);
                         startActivity(intent);
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getResources().getString(R.string.cancelDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
@@ -143,7 +142,7 @@ public class exercises_activity extends AppCompatActivity {
         alert.setMessage("Enter exercise name:")
                 .setCancelable(false)
                 .setView(inputName)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         button.setText(inputName.getText());
                         button.setOnClickListener(new View.OnClickListener(){
@@ -158,7 +157,7 @@ public class exercises_activity extends AppCompatActivity {
 
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getResources().getString(R.string.cancelDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
@@ -204,8 +203,8 @@ public class exercises_activity extends AppCompatActivity {
                 break;
             default:
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setMessage("Osiągnięto maksymalną liczbe cwiczen.")
-                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                alert.setMessage(getResources().getString(R.string.maxExercisesAlert))
+                        .setNegativeButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
                             }
