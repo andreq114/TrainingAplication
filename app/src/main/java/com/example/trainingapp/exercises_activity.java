@@ -48,7 +48,7 @@ public class exercises_activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        setExercises= useddayData.excercisesSet;
         TextView label = findViewById(R.id.exerciseLabel);
         label.setText(useddayData.nameButton);
         Short i = 0;
@@ -116,7 +116,7 @@ public class exercises_activity extends AppCompatActivity {
     public void deleteDay(View view){
         final Intent intent = new Intent(this,MainActivity.class);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Do you really want to delete this day?")
+        alert.setMessage(getResources().getString(R.string.deleteAlert))
                 .setCancelable(false)
                 .setPositiveButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -139,7 +139,7 @@ public class exercises_activity extends AppCompatActivity {
         //Dodawanie nowych cwiczen
         inputName.setInputType(InputType.TYPE_CLASS_TEXT);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Enter exercise name:")
+        alert.setMessage(getResources().getString(R.string.enterName))
                 .setCancelable(false)
                 .setView(inputName)
                 .setPositiveButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
