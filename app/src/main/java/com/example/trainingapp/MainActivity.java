@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = this.getSharedPreferences("myPreferences",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         List<DayData> lista = new ArrayList<DayData>();
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         dayData.clear();
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = this.getSharedPreferences("myPreferences",Context.MODE_PRIVATE);
         setDays = sharedPref.getInt("actualSetDays", 0);
         DayData.licznikId = sharedPref.getInt("licznikID", 0);
         System.out.println(setDays + " wczytanie");

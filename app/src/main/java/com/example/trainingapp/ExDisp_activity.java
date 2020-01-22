@@ -8,12 +8,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 public class ExDisp_activity extends AppCompatActivity {
 
+    DayData useddayData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ex_disp_activity);
+        String name = getIntent().getStringExtra("Chosed");
+        useddayData = new Gson().fromJson(name, DayData.class);
     }
 
 

@@ -80,14 +80,15 @@ public class exercises_activity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = this.getSharedPreferences("myPreferences",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         useddayData.excercisesSet=setExercises;
         Gson gson = new Gson();
-        name2 = getIntent().getStringExtra("dayData");
-        if(name2.isEmpty()){
-            System.out.println("winowajca");return;}
-        List<DayData> text = Arrays.asList(gson.fromJson(name2, DayData[].class));
+        String txt = sharedPref.getString("dayData", "");
+        if(txt.isEmpty()){
+            System.out.println("winowajca2");return;}
+
+        List<DayData> text = Arrays.asList(gson.fromJson(txt, DayData[].class));
         ArrayList<DayData> lista = new ArrayList<>();
         lista.addAll(text);
         dayData = lista;
