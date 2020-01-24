@@ -52,7 +52,7 @@ public class exercises_activity extends AppCompatActivity {
         TextView label = findViewById(R.id.exerciseLabel);
         label.setText(useddayData.nameButton);
         Short i = 0;
-        ArrayList<String> lista = useddayData.exercises;
+        ArrayList<DayData.ExerciseData> lista = useddayData.exercises;
         for(Button button : buttons) {
             try {
                 System.out.println("Poszlo");
@@ -109,7 +109,7 @@ public class exercises_activity extends AppCompatActivity {
     public void newActivity(DayData dayData){
         Intent intent2 = new Intent(this,ExDisp_activity.class);
         String json = new Gson().toJson(dayData);
-        intent2.putExtra("dayData_Excercises", json);
+        intent2.putExtra("Chosed", json);
         startActivity(intent2);
     }
 
@@ -152,7 +152,8 @@ public class exercises_activity extends AppCompatActivity {
                             }
                         });
                         setExercises++;
-                        useddayData.exercises.add(inputName.getText().toString());
+                        DayData.ExerciseData temp = useddayData.new ExerciseData(inputName.getText().toString());
+                        useddayData.exercises.add(temp);
                         newActivity(useddayData);
 
                     }
