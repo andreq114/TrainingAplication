@@ -16,7 +16,7 @@
         android:onClick="hideRow"
         app:layout_constraintEnd_toStartOf="@+id/save_button"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:srcCompat="@drawable/minus2" />
+         />
 
     <TextView
         android:id="@+id/exercise_name"
@@ -414,6 +414,6 @@
         android:onClick="addRow"
         app:layout_constraintStart_toEndOf="@+id/edit_button"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:srcCompat="@drawable/plus2" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

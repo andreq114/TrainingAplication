@@ -110,24 +110,59 @@ public class ExDisp_activity extends AppCompatActivity {
 
     public void editExercises(View view){
 
-        nset1.setEnabled(true);
-        nset2.setEnabled(true);
-        nset3.setEnabled(true);
-        nset4.setEnabled(true);
-        nrepeat1.setEnabled(true);
-        nrepeat2.setEnabled(true);
-        nrepeat3.setEnabled(true);
-        nrepeat4.setEnabled(true);
-        nweight1.setEnabled(true);
-        nweight2.setEnabled(true);
-        nweight3.setEnabled(true);
-        nweight4.setEnabled(true);
+        if(!nset1.isEnabled()) {
+            nset1.setEnabled(true);
+            nset2.setEnabled(true);
+            nset3.setEnabled(true);
+            nset4.setEnabled(true);
+            nrepeat1.setEnabled(true);
+            nrepeat2.setEnabled(true);
+            nrepeat3.setEnabled(true);
+            nrepeat4.setEnabled(true);
+            nweight1.setEnabled(true);
+            nweight2.setEnabled(true);
+            nweight3.setEnabled(true);
+            nweight4.setEnabled(true);
 
-
+        }
     }
 
 
     public void saveExercises(View view){
+
+
+        SharedPreferences sharedPref = this.getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        if(nset1.isEnabled()) {
+            if (nset1.getVisibility() == View.VISIBLE) {
+                exercise.sets.add(nset1.getText().toString());
+                exercise.repeats.add(nrepeat1.getText().toString());
+                exercise.weight.add(nweight1.getText().toString());
+                System.out.println("ZAPISANE 1 WIERSZ");
+            }
+            if (nset2.getVisibility() == View.VISIBLE) {
+                exercise.sets.add(nset2.getText().toString());
+                exercise.repeats.add(nrepeat2.getText().toString());
+                exercise.weight.add(nweight2.getText().toString());
+                System.out.println("ZAPISANE 2 WIERSZ");
+            }
+            if (nset3.getVisibility() == View.VISIBLE) {
+                exercise.sets.add(nset3.getText().toString());
+                exercise.repeats.add(nrepeat3.getText().toString());
+                exercise.weight.add(nweight3.getText().toString());
+                System.out.println("ZAPISANE 3 WIERSZ");
+            }
+            if (nset4.getVisibility() == View.VISIBLE) {
+                exercise.sets.add(nset4.getText().toString());
+                exercise.repeats.add(nrepeat4.getText().toString());
+                exercise.weight.add(nweight4.getText().toString());
+                System.out.println("ZAPISANE 4 WIERSZ");
+            }
+        }
+        String json = new Gson().toJson(exercise);
+        editor.putString("exData",json);
+        editor.apply();
         nset1.setEnabled(false);
         nset2.setEnabled(false);
         nset3.setEnabled(false);
@@ -209,8 +244,37 @@ public class ExDisp_activity extends AppCompatActivity {
         TextView dayview = findViewById(R.id.day_name);
         TextView exview = findViewById(R.id.exercise_name);
         dayview.setText(useddayData.nameButton);
-        System.out.println(useddayData.exercises);
-        System.out.println("Wybrane cwiczenie " + useddayData.excercisesSet);
+        String name = getIntent().getStringExtra("Chosed");
+        useddayData = new Gson().fromJson(name, DayData.class);
+        int rows = exercise.sets.size();
+        //System.out.println(exercise.sets);
+
+        switch(rows) {
+            case 1:
+                System.out.println("Wczytany 1 wiersz");
+                nset1.setText(exercise.sets.get(0));
+                nrepeat1.setText(exercise.repeats.get(0));
+                nweight1.setText(exercise.weight.get(0));
+            case 2:
+                System.out.println("Wczytany 2 wiersz");
+                nset2.setText(exercise.sets.get(1));
+                nrepeat2.setText(exercise.repeats.get(1));
+                nweight2.setText(exercise.weight.get(1));
+            case 3:
+                System.out.println("Wczytany 3 wiersz");
+                nset3.setText(exercise.sets.get(2));
+                nrepeat3.setText(exercise.repeats.get(2));
+                nweight3.setText(exercise.weight.get(2));
+            case 4:
+                System.out.println("Wczytany 4 wiersz");
+                nset4.setText(exercise.sets.get(3));
+                nrepeat4.setText(exercise.repeats.get(3));
+                nweight4.setText(exercise.weight.get(3));
+        }
+
+
+        //System.out.println(useddayData.exercises);
+        //System.out.println("Wybrane cwiczenie " + useddayData.excercisesSet);
         //System.out.println(useddayData.excercisesSet);
         //System.out.println(useddayData.id);
         //System.out.println(useddayData.nameButton);

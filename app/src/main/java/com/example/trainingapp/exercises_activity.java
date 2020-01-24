@@ -141,6 +141,7 @@ public class exercises_activity extends AppCompatActivity {
                         String json = new Gson().toJson(useddayData);
                         intent.putExtra("Deleted", json);
                         startActivity(intent);
+                        finish();
                     }
                 })
                 .setNegativeButton(getResources().getString(R.string.cancelDialog), new DialogInterface.OnClickListener() {
