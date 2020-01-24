@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class ExDisp_activity extends AppCompatActivity {
 
     DayData useddayData;
@@ -17,9 +19,12 @@ public class ExDisp_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ex_disp_activity);
-        String name = getIntent().getStringExtra("Chosed");
+        String name = getIntent().getStringExtra("dayData_Excercises");
         useddayData = new Gson().fromJson(name, DayData.class);
-        System.out.println(useddayData);
+        String ex_name = getIntent().getStringExtra("nazwa");
+        TextView ex_view = findViewById(R.id.exercise_name);
+        System.out.println(ex_name);
+        ex_view.setText(ex_name);
     }
 
 
@@ -140,12 +145,12 @@ public class ExDisp_activity extends AppCompatActivity {
         super.onResume();
         TextView dayview = findViewById(R.id.day_name);
         TextView exview = findViewById(R.id.exercise_name);
-        //dayview.setText(useddayData.nameButton);
-        //exview.setText(useddayData.);
+        dayview.setText(useddayData.nameButton);
+        System.out.println(useddayData.exercises);
+        System.out.println("Wybrane cwiczenie " + useddayData.excercisesSet);
         //System.out.println(useddayData.excercisesSet);
         //System.out.println(useddayData.id);
         //System.out.println(useddayData.nameButton);
-        System.out.println(useddayData);
 
     }
 

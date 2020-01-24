@@ -51,9 +51,10 @@ public class exercises_activity extends AppCompatActivity {
         setExercises= useddayData.excercisesSet;
         TextView label = findViewById(R.id.exerciseLabel);
         label.setText(useddayData.nameButton);
+        final Intent intent2 = new Intent(this,ExDisp_activity.class);
         Short i = 0;
         ArrayList<String> lista = useddayData.exercises;
-        for(Button button : buttons) {
+        for(final Button button : buttons) {
             try {
                 System.out.println("Poszlo");
                 button.setOnClickListener(null);
@@ -65,7 +66,7 @@ public class exercises_activity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Add your code in here!
-                        newActivity(useddayData);
+                        newActivity(useddayData,button.getText().toString());
                     }
                 });
                 i++;
@@ -106,10 +107,11 @@ public class exercises_activity extends AppCompatActivity {
         editor.apply();
     }
 
-    public void newActivity(DayData dayData){
+    public void newActivity(DayData dayData,String name){
         Intent intent2 = new Intent(this,ExDisp_activity.class);
         String json = new Gson().toJson(dayData);
         intent2.putExtra("dayData_Excercises", json);
+        intent2.putExtra("nazwa",name);
         startActivity(intent2);
     }
 
@@ -148,12 +150,12 @@ public class exercises_activity extends AppCompatActivity {
                         button.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v) {
-                                newActivity(useddayData);
+                                newActivity(useddayData,button.getText().toString());
                             }
                         });
                         setExercises++;
                         useddayData.exercises.add(inputName.getText().toString());
-                        newActivity(useddayData);
+                        newActivity(useddayData,button.getText().toString());
 
                     }
                 })
