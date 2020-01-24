@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class ExDisp_activity extends AppCompatActivity {
 
     DayData useddayData;
+    DayData.ExerciseData exercise;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,11 @@ public class ExDisp_activity extends AppCompatActivity {
         TextView ex_view = findViewById(R.id.exercise_name);
         System.out.println(ex_name);
         ex_view.setText(ex_name);
+
+        for (DayData.ExerciseData data : useddayData.exercises){
+            if(ex_name.equals(data.name))
+                exercise=data;
+        }
     }
 
 

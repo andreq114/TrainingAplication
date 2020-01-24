@@ -11,21 +11,12 @@ public class DayData {
     public String nameButton = null;
     public ArrayList<ExerciseData> exercises;
     public Integer excercisesSet=0;
-    public ArrayList<String> sets ;
-    public ArrayList<String> repeats;
-    public ArrayList<String> weight;
 
     DayData(){
         exercises = new ArrayList<>();
-        sets = new ArrayList<>();
-        repeats = new ArrayList<>();
-        weight = new ArrayList<>();
     }
     DayData(boolean bol){
         exercises = new ArrayList<>();
-        sets = new ArrayList<>();
-        repeats = new ArrayList<>();
-        weight = new ArrayList<>();
         if(bol)
         id =( ++licznikId);
         System.out.println("Nowe ID:"+ id);
@@ -36,8 +27,15 @@ public class DayData {
         public Status status = Status.NEW;
         public String name;
 
+        public ArrayList<String> sets ;
+        public ArrayList<String> repeats;
+        public ArrayList<String> weight;
+
         ExerciseData(String name){
             this.name = name;
+            sets = new ArrayList<>();
+            repeats = new ArrayList<>();
+            weight = new ArrayList<>();
         }
     }
 
@@ -79,29 +77,5 @@ public class DayData {
 
     public void setExercises(ArrayList<ExerciseData> exercises) {
         this.exercises = exercises;
-    }
-
-    public ArrayList<String> getSets() {
-        return sets;
-    }
-
-    public void setSets(ArrayList<String> sets) {
-        this.sets = sets;
-    }
-
-    public ArrayList<String> getRepeats() {
-        return repeats;
-    }
-
-    public void setRepeats(ArrayList<String> repeats) {
-        this.repeats = repeats;
-    }
-
-    public ArrayList<String> getWeight() {
-        return weight;
-    }
-
-    public void setWeight(ArrayList<String> weight) {
-        this.weight = weight;
     }
 }

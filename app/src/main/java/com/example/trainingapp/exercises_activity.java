@@ -58,14 +58,14 @@ public class exercises_activity extends AppCompatActivity {
                 System.out.println("Poszlo");
                 button.setOnClickListener(null);
                 button.setVisibility(View.INVISIBLE);
-                String excercise = lista.get(i).name;
+                final String excercise = lista.get(i).name;
                 button.setText(excercise);
                 button.setVisibility(View.VISIBLE);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // Add your code in here!
-                        newActivity(useddayData);
+                        newActivity(useddayData,excercise);
                     }
                 });
                 i++;
@@ -106,10 +106,11 @@ public class exercises_activity extends AppCompatActivity {
         editor.apply();
     }
 
-    public void newActivity(DayData dayData){
+    public void newActivity(DayData dayData, String name){
         Intent intent2 = new Intent(this,ExDisp_activity.class);
         String json = new Gson().toJson(dayData);
         intent2.putExtra("dayData_Excercises", json);
+        intent2.putExtra("nazwa", name);
         startActivity(intent2);
     }
 
@@ -148,13 +149,13 @@ public class exercises_activity extends AppCompatActivity {
                         button.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v) {
-                                newActivity(useddayData);
+                                newActivity(useddayData,inputName.getText().toString());
                             }
                         });
                         setExercises++;
                         DayData.ExerciseData temp = useddayData.new ExerciseData(inputName.getText().toString());
                         useddayData.exercises.add(temp);
-                        newActivity(useddayData);
+                        newActivity(useddayData,temp.name);
 
                     }
                 })
