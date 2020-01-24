@@ -58,7 +58,7 @@ public class exercises_activity extends AppCompatActivity {
                 System.out.println("Poszlo");
                 button.setOnClickListener(null);
                 button.setVisibility(View.INVISIBLE);
-                String excercise = lista.get(i);
+                String excercise = lista.get(i).name;
                 button.setText(excercise);
                 button.setVisibility(View.VISIBLE);
                 button.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +109,7 @@ public class exercises_activity extends AppCompatActivity {
     public void newActivity(DayData dayData){
         Intent intent2 = new Intent(this,ExDisp_activity.class);
         String json = new Gson().toJson(dayData);
-        intent2.putExtra("Chosed", json);
+        intent2.putExtra("dayData_Excercises", json);
         startActivity(intent2);
     }
 
