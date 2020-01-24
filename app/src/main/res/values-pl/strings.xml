@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aplikacja Treningowa</string>
-    <string name="BMI_EnterHeight">Wprowadź swój wzrost(cm)</string>
-    <string name="BMI_EnterWeight">Wprowadź swoją wagę (kg)</string>
+    <string name="BMI_EnterHeight">Wprowadź swój wzrost(cm):</string>
+    <string name="BMI_EnterWeight">Wprowadź swoją wagę (kg):</string>
     <string name="BMI_Label">Kalkulator BMI</string>
     <string name="Calculate">Oblicz</string>
     <string name="action_settings">Język</string>
@@ -17,7 +17,7 @@
     <string name="BMI_Discription_Overweight">Nadwaga</string>
     <string name="BMI_Discription_Obese">Otyłość</string>
     <string name="BMI_Discription_Morbidly_Obese">Otyłość alarmowa</string>
-    <string name="dayLabel">Dzień treningowy</string>
+    <string name="dayLabel">Dni treningowe</string>
     <string name="exercisesLabel">Ćwiczenia:</string>
     <string name="exception">Błąd! Wprowadź lub popraw dane.</string>
     <string name="confirmDialog">OK</string>

@@ -3,7 +3,7 @@
     <string name="action_settings">Language</string>
     <string name="kalkulator_BMI">Calculator BMI</string>
     <string name="BMI_Label">BMI Calculator</string>
-    <string name="BMI_EnterHeight">Enter your growth(cm):</string>
+    <string name="BMI_EnterHeight">Enter your growth (cm):</string>
     <string name="Calculate">Calculate</string>
     <string name="BMI_EnterWeight">Enter your weight (kg):</string>
     <string name="kalkulator_BMR">Calculator BMR</string>
