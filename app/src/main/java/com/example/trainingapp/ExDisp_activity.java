@@ -19,6 +19,7 @@ public class ExDisp_activity extends AppCompatActivity {
         setContentView(R.layout.activity_ex_disp_activity);
         String name = getIntent().getStringExtra("Chosed");
         useddayData = new Gson().fromJson(name, DayData.class);
+        System.out.println(useddayData);
     }
 
 
@@ -134,6 +135,23 @@ public class ExDisp_activity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        TextView dayview = findViewById(R.id.day_name);
+        TextView exview = findViewById(R.id.exercise_name);
+        //dayview.setText(useddayData.nameButton);
+        //exview.setText(useddayData.);
+        //System.out.println(useddayData.excercisesSet);
+        //System.out.println(useddayData.id);
+        //System.out.println(useddayData.nameButton);
+        System.out.println(useddayData);
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 
 }
