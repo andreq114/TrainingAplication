@@ -41,9 +41,6 @@ public class ExDisp_activity extends AppCompatActivity {
         set4.setEnabled(true);
         set4.setTextColor(Color.BLACK);
 
-        EditText set5 = findViewById(R.id.set5);
-        set5.setEnabled(true);
-        set5.setTextColor(Color.BLACK);
 
         EditText repeat1 = findViewById(R.id.repeat1);
         repeat1.setEnabled(true);
@@ -61,9 +58,6 @@ public class ExDisp_activity extends AppCompatActivity {
         repeat4.setEnabled(true);
         repeat4.setTextColor(Color.BLACK);
 
-        EditText repeat5= findViewById(R.id.repeat5);
-        repeat5.setEnabled(true);
-        repeat5.setTextColor(Color.BLACK);
 
         EditText weight1 = findViewById(R.id.weight1);
         weight1.setEnabled(true);
@@ -81,9 +75,6 @@ public class ExDisp_activity extends AppCompatActivity {
         weight4.setEnabled(true);
         weight4.setTextColor(Color.BLACK);
 
-        EditText weight5 = findViewById(R.id.weight5);
-        weight5.setEnabled(true);
-        weight5.setTextColor(Color.BLACK);
 
     }
 
@@ -106,9 +97,6 @@ public class ExDisp_activity extends AppCompatActivity {
         set4.setEnabled(false);
         set4.setTextColor(Color.BLACK);
 
-        EditText set5 = findViewById(R.id.set5);
-        set5.setEnabled(false);
-        set5.setTextColor(Color.BLACK);
 
         EditText repeat1 = findViewById(R.id.repeat1);
         repeat1.setEnabled(false);
@@ -126,9 +114,6 @@ public class ExDisp_activity extends AppCompatActivity {
         repeat4.setEnabled(false);
         repeat4.setTextColor(Color.BLACK);
 
-        EditText repeat5 = findViewById(R.id.repeat5);
-        repeat5.setEnabled(false);
-        repeat5.setTextColor(Color.BLACK);
 
         EditText weight1 = findViewById(R.id.weight1);
         weight1.setEnabled(false);
@@ -146,11 +131,9 @@ public class ExDisp_activity extends AppCompatActivity {
         weight4.setEnabled(false);
         weight4.setTextColor(Color.BLACK);
 
-        EditText weight5 = findViewById(R.id.weight5);
-        weight5.setEnabled(false);
-        weight5.setTextColor(Color.BLACK);
-
 
 
     }
+
+
 }

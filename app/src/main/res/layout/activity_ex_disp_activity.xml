@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tlo3ex2"
     tools:context=".ExDisp_activity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Nazwa_Cwiczenia"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +22,18 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="360dp"
-        android:layout_height="0dp"
+        android:layout_height="250dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="170dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exercise_name"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/exercise_name">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="300dp">
 
             <TextView
                 android:id="@+id/set_title"
@@ -291,90 +290,37 @@
                 tools:layout_editor_absoluteY="456dp" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="120dp"
-            android:layout_height="50dp">
-
-            <EditText
-                android:id="@+id/set5"
-                style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:background="@android:color/holo_orange_light"
-                android:clickable="false"
-                android:ems="10"
-                android:enabled="false"
-                android:fontFamily="sans-serif"
-                android:inputType="number|text|numberDecimal"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp"
-                tools:layout_editor_absoluteY="456dp" />
-
-            <EditText
-                android:id="@+id/repeat5"
-                style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:background="@android:color/holo_orange_light"
-                android:clickable="false"
-                android:ems="10"
-                android:enabled="false"
-                android:fontFamily="sans-serif"
-                android:inputType="number|text|numberDecimal"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp"
-                tools:layout_editor_absoluteY="456dp" />
-
-            <EditText
-                android:id="@+id/weight5"
-                style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:background="@android:color/holo_orange_light"
-                android:clickable="false"
-                android:ems="10"
-                android:enabled="false"
-                android:fontFamily="sans-serif"
-                android:inputType="number|text|numberDecimal"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@android:color/background_dark"
-                android:textSize="25dp"
-                tools:layout_editor_absoluteY="456dp" />
-        </TableRow>
     </TableLayout>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="70dp"
+        android:background="@android:color/holo_green_light"
         android:text="Done"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="70dp"
+        android:background="@android:color/holo_red_light"
         android:text="Fail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/edit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/holo_green_light"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/darker_gray"
         android:onClick="editExercises"
         android:text="EDIT"
         app:layout_constraintStart_toStartOf="parent"
@@ -384,12 +330,37 @@
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="85dp"
-        android:background="@android:color/holo_green_light"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
+        android:background="@android:color/darker_gray"
         android:onClick="saveExercises"
         android:text="SAVE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TextView
+        android:id="@+id/day_name"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:srcCompat="@drawable/deletebutton3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
