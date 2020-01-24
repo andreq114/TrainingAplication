@@ -7,6 +7,17 @@
     android:background="@drawable/tlo3ex2"
     tools:context=".ExDisp_activity">
 
+    <ImageView
+        android:id="@+id/minusButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="hideRow"
+        app:layout_constraintEnd_toStartOf="@+id/save_button"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:srcCompat="@drawable/minus2" />
+
     <TextView
         android:id="@+id/exercise_name"
         android:layout_width="wrap_content"
@@ -80,6 +91,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Sets"
                 android:inputType="number|text|numberDecimal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -97,6 +109,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Repeats"
                 android:inputType="number|text|numberDecimal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -114,6 +127,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Weight"
                 android:inputType="number|text|numberDecimal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -136,11 +150,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Sets"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
 
             <EditText
@@ -153,11 +170,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Repeats"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
 
             <EditText
@@ -170,11 +190,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Weight"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
         </TableRow>
 
@@ -192,12 +215,15 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Sets"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
-                tools:layout_editor_absoluteY="456dp" />
+                tools:layout_editor_absoluteY="456dp"
+                android:visibility="invisible" />
 
             <EditText
                 android:id="@+id/repeat3"
@@ -209,11 +235,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Repeats"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
 
             <EditText
@@ -226,11 +255,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Weight"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
         </TableRow>
 
@@ -248,11 +280,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Sets"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
 
             <EditText
@@ -265,11 +300,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Repeats"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
 
             <EditText
@@ -282,11 +320,14 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
+                android:hint="Weight"
                 android:inputType="number|text|numberDecimal"
+                android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
+                android:visibility="invisible"
                 tools:layout_editor_absoluteY="456dp" />
         </TableRow>
 
@@ -362,5 +403,16 @@
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:srcCompat="@drawable/deletebutton3" />
+
+    <ImageView
+        android:id="@+id/plusButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="addRow"
+        app:layout_constraintStart_toEndOf="@+id/edit_button"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:srcCompat="@drawable/plus2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

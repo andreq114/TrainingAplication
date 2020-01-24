@@ -2,7 +2,6 @@ package com.example.trainingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,12 +9,23 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-
 public class ExDisp_activity extends AppCompatActivity {
 
     DayData useddayData;
     DayData.ExerciseData exercise;
+    EditText nset1;
+    EditText nset2;
+    EditText nset3;
+    EditText nset4;
+    EditText nrepeat1;
+    EditText nrepeat2;
+    EditText nrepeat3;
+    EditText nrepeat4;
+    EditText nweight1;
+    EditText nweight2;
+    EditText nweight3;
+    EditText nweight4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,128 +34,125 @@ public class ExDisp_activity extends AppCompatActivity {
         useddayData = new Gson().fromJson(name, DayData.class);
         String ex_name = getIntent().getStringExtra("nazwa");
         TextView ex_view = findViewById(R.id.exercise_name);
-        System.out.println(ex_name);
+
         ex_view.setText(ex_name);
 
         for (DayData.ExerciseData data : useddayData.exercises){
             if(ex_name.equals(data.name))
                 exercise=data;
         }
+
+        nset1 = findViewById(R.id.set1);
+        nset2 = findViewById(R.id.set2);
+        nset3 = findViewById(R.id.set3);
+        nset4 = findViewById(R.id.set4);
+        nrepeat1 = findViewById(R.id.repeat1);
+        nrepeat2 = findViewById(R.id.repeat2);
+        nrepeat3 = findViewById(R.id.repeat3);
+        nrepeat4 = findViewById(R.id.repeat4);
+        nweight1 = findViewById(R.id.weight1);
+        nweight2 = findViewById(R.id.weight2);
+        nweight3 = findViewById(R.id.weight3);
+        nweight4 = findViewById(R.id.weight4);
     }
 
 
 
     public void editExercises(View view){
-        EditText set1 = findViewById(R.id.set1);
-        set1.setEnabled(true);
-        set1.setTextColor(Color.BLACK);
 
-
-        EditText set2 = findViewById(R.id.set2);
-        set2.setEnabled(true);
-        set2.setTextColor(Color.BLACK);
-
-        EditText set3 = findViewById(R.id.set3);
-        set3.setEnabled(true);
-        set3.setTextColor(Color.BLACK);
-
-        EditText set4 = findViewById(R.id.set4);
-        set4.setEnabled(true);
-        set4.setTextColor(Color.BLACK);
-
-
-        EditText repeat1 = findViewById(R.id.repeat1);
-        repeat1.setEnabled(true);
-        repeat1.setTextColor(Color.BLACK);
-
-        EditText repeat2 = findViewById(R.id.repeat2);
-        repeat2.setEnabled(true);
-        repeat2.setTextColor(Color.BLACK);
-
-        EditText repeat3 = findViewById(R.id.repeat3);
-        repeat3.setEnabled(true);
-        repeat3.setTextColor(Color.BLACK);
-
-        EditText repeat4 = findViewById(R.id.repeat4);
-        repeat4.setEnabled(true);
-        repeat4.setTextColor(Color.BLACK);
-
-
-        EditText weight1 = findViewById(R.id.weight1);
-        weight1.setEnabled(true);
-        weight1.setTextColor(Color.BLACK);
-
-        EditText weight2 = findViewById(R.id.weight2);
-        weight2.setEnabled(true);
-        weight2.setTextColor(Color.BLACK);
-
-        EditText weight3 = findViewById(R.id.weight3);
-        weight3.setEnabled(true);
-        weight3.setTextColor(Color.BLACK);
-
-        EditText weight4 = findViewById(R.id.weight4);
-        weight4.setEnabled(true);
-        weight4.setTextColor(Color.BLACK);
+        nset1.setEnabled(true);
+        nset2.setEnabled(true);
+        nset3.setEnabled(true);
+        nset4.setEnabled(true);
+        nrepeat1.setEnabled(true);
+        nrepeat2.setEnabled(true);
+        nrepeat3.setEnabled(true);
+        nrepeat4.setEnabled(true);
+        nweight1.setEnabled(true);
+        nweight2.setEnabled(true);
+        nweight3.setEnabled(true);
+        nweight4.setEnabled(true);
 
 
     }
 
 
     public void saveExercises(View view){
-        EditText set1 = findViewById(R.id.set1);
-        set1.setEnabled(false);
-        set1.setTextColor(Color.BLACK);
-
-
-        EditText set2 = findViewById(R.id.set2);
-        set2.setEnabled(false);
-        set2.setTextColor(Color.BLACK);
-
-        EditText set3 = findViewById(R.id.set3);
-        set3.setEnabled(false);
-        set3.setTextColor(Color.BLACK);
-
-        EditText set4 = findViewById(R.id.set4);
-        set4.setEnabled(false);
-        set4.setTextColor(Color.BLACK);
-
-
-        EditText repeat1 = findViewById(R.id.repeat1);
-        repeat1.setEnabled(false);
-        repeat1.setTextColor(Color.BLACK);
-
-        EditText repeat2 = findViewById(R.id.repeat2);
-        repeat2.setEnabled(false);
-        repeat2.setTextColor(Color.BLACK);
-
-        EditText repeat3 = findViewById(R.id.repeat3);
-        repeat3.setEnabled(false);
-        repeat3.setTextColor(Color.BLACK);
-
-        EditText repeat4 = findViewById(R.id.repeat4);
-        repeat4.setEnabled(false);
-        repeat4.setTextColor(Color.BLACK);
-
-
-        EditText weight1 = findViewById(R.id.weight1);
-        weight1.setEnabled(false);
-        weight1.setTextColor(Color.BLACK);
-
-        EditText weight2 = findViewById(R.id.weight2);
-        weight2.setEnabled(false);
-        weight2.setTextColor(Color.BLACK);
-
-        EditText weight3 = findViewById(R.id.weight3);
-        weight3.setEnabled(false);
-        weight3.setTextColor(Color.BLACK);
-
-        EditText weight4 = findViewById(R.id.weight4);
-        weight4.setEnabled(false);
-        weight4.setTextColor(Color.BLACK);
-
-
+        nset1.setEnabled(false);
+        nset2.setEnabled(false);
+        nset3.setEnabled(false);
+        nset4.setEnabled(false);
+        nrepeat1.setEnabled(false);
+        nrepeat2.setEnabled(false);
+        nrepeat3.setEnabled(false);
+        nrepeat4.setEnabled(false);
+        nweight1.setEnabled(false);
+        nweight2.setEnabled(false);
+        nweight3.setEnabled(false);
+        nweight4.setEnabled(false);
 
     }
+
+    public void addRow(View view){
+        if(nset1.isEnabled()) {
+            //System.out.println("PIERWSZA PETLA");
+            //System.out.println(nset2.getText().toString());
+            //System.out.println("empty");
+            if (nset2.getText().toString().equals("empty")) {
+                //System.out.println("PIERWSZY IF");
+                nset2.setText("");
+                nset2.setVisibility(View.VISIBLE);
+                nrepeat2.setText("");
+                nrepeat2.setVisibility(View.VISIBLE);
+                nweight2.setText("");
+                nweight2.setVisibility(View.VISIBLE);
+            } else if (nset3.getText().toString().equals("empty")) {
+                nset3.setText("");
+                nset3.setVisibility(View.VISIBLE);
+                nrepeat3.setText("");
+                nrepeat3.setVisibility(View.VISIBLE);
+                nweight3.setText("");
+                nweight3.setVisibility(View.VISIBLE);
+            } else if (nset4.getText().toString().equals("empty")) {
+                nset4.setText("");
+                nset4.setVisibility(View.VISIBLE);
+                nrepeat4.setText("");
+                nrepeat4.setVisibility(View.VISIBLE);
+                nweight4.setText("");
+                nweight4.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    public void hideRow(View view){
+
+        if(nset1.isEnabled()) {
+            if (nset4.getVisibility() == View.VISIBLE) {
+                nset4.setText("empty");
+                nset4.setVisibility(View.INVISIBLE);
+                nrepeat4.setText("empty");
+                nrepeat4.setVisibility(View.INVISIBLE);
+                nweight4.setText("empty");
+                nweight4.setVisibility(View.INVISIBLE);
+            } else if (nset3.getVisibility() == View.VISIBLE) {
+                nset3.setText("empty");
+                nset3.setVisibility(View.INVISIBLE);
+                nrepeat3.setText("empty");
+                nrepeat3.setVisibility(View.INVISIBLE);
+                nweight3.setText("empty");
+                nweight3.setVisibility(View.INVISIBLE);
+            } else if (nset2.getVisibility() == View.VISIBLE) {
+                nset2.setText("empty");
+                nset2.setVisibility(View.INVISIBLE);
+                nrepeat2.setText("empty");
+                nrepeat2.setVisibility(View.INVISIBLE);
+                nweight2.setText("empty");
+                nweight2.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
