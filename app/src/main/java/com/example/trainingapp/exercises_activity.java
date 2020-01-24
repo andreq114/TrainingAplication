@@ -30,9 +30,9 @@ public class exercises_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_activity);
+
         String name = getIntent().getStringExtra("Chosed");
         useddayData = new Gson().fromJson(name, DayData.class);
-
 
         buttons = new ArrayList<>();
         buttons.add((Button)findViewById(R.id.ex1));
@@ -48,6 +48,23 @@ public class exercises_activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        SharedPreferences sharedPref = this.getSharedPreferences("myPreferences",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        Gson gson = new Gson();
+        String txt = sharedPref.getString("dayData", "");
+        if(txt.isEmpty()){
+            System.out.println("winowajca2");return;}
+        List<DayData> text = Arrays.asList(gson.fromJson(txt, DayData[].class));
+        ArrayList<DayData> lista1 = new ArrayList<>();
+        lista1.addAll(text);
+        dayData = lista1;
+        for (DayData day : dayData) {
+            if (day.id==useddayData.id) {
+                useddayData=day;
+                break;
+            }
+        }
         setExercises= useddayData.excercisesSet;
         TextView label = findViewById(R.id.exerciseLabel);
         label.setText(useddayData.nameButton);

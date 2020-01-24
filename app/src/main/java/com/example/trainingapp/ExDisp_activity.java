@@ -2,38 +2,84 @@ package com.example.trainingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ExDisp_activity extends AppCompatActivity {
 
     DayData useddayData;
     DayData.ExerciseData exercise;
+    String exerciseName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ex_disp_activity);
         String name = getIntent().getStringExtra("dayData_Excercises");
         useddayData = new Gson().fromJson(name, DayData.class);
-        String ex_name = getIntent().getStringExtra("nazwa");
+        exerciseName = getIntent().getStringExtra("nazwa");
         TextView ex_view = findViewById(R.id.exercise_name);
-        System.out.println(ex_name);
-        ex_view.setText(ex_name);
+        System.out.println(exerciseName);
+        ex_view.setText(exerciseName);
 
         for (DayData.ExerciseData data : useddayData.exercises){
-            if(ex_name.equals(data.name))
-                exercise=data;
+            if(exerciseName.equals(data.name)) {
+                exercise = data;
+            }
         }
     }
 
+    public void deleteExercise(View view){
+        DayData.ExerciseData chosed = null;
+        for (DayData.ExerciseData data : useddayData.exercises) {
+            if (exerciseName.equals(data.name)){
+                chosed = data;
+                break;
+            }
+        }
+        useddayData.exercises.remove(chosed);
+        SharedPreferences sharedPref = this.getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        Gson gson = new Gson();
+        String txt = sharedPref.getString("dayData", "");
+        if(txt.isEmpty()){
+            return;}
+        List<DayData> text = Arrays.asList(gson.fromJson(txt, DayData[].class));
+        ArrayList<DayData> lista = new ArrayList<>();
+        lista.addAll(text);
+        ArrayList<DayData> dayData;
+        dayData = lista;
+        for (DayData day : dayData) {
+            if (day.id==useddayData.id) {
+                day.exercises=useddayData.exercises;
+                break;
+            }
+        }
+        List<DayData> lista1 = new ArrayList<DayData>();
+        lista1.addAll(dayData);
+        String json = new Gson().toJson(lista1);
+        editor.putString("dayData",json);
+        editor.apply();
 
+        Intent intent2 = new Intent(this,exercises_activity.class);
+        json = new Gson().toJson(useddayData);
+        intent2.putExtra("Chosed", json);
+        finish();
+        //startActivity(intent2);
+
+    }
 
     public void editExercises(View view){
         EditText set1 = findViewById(R.id.set1);
