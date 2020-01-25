@@ -100,7 +100,6 @@ public class ExDisp_activity extends AppCompatActivity {
             }
         }
         useddayData.exercises.remove(chosed);
-        useddayData.excercisesSet--;
         System.out.println("Cwiczenia:"+useddayData.excercisesSet);
         SharedPreferences sharedPref = this.getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

@@ -51,7 +51,6 @@ public class exercises_activity extends AppCompatActivity {
         super.onResume();
         SharedPreferences sharedPref = this.getSharedPreferences("myPreferences",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-
         Gson gson = new Gson();
         String txt = sharedPref.getString("dayData", "");
         if(txt.isEmpty()){
@@ -93,6 +92,7 @@ public class exercises_activity extends AppCompatActivity {
             }catch(Exception ex){
                 break;
             }
+            System.out.println("LICZBA CWICZEN:" + setExercises);
         }
     }
 
