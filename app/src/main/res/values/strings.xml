@@ -25,4 +25,10 @@
     <string name="maxExercisesAlert">You have set the maximum amount exercises.</string>
     <string name="deleteAlert">Do you really want to delete this day?</string>
     <string name="enterName">Enter exercise name:</string>
+    <string name="Weight">Weight</string>
+    <string name="Age">Age</string>
+    <string name="Waist">Waist</string>
+    <string name="Man">Man</string>
+    <string name="Woman">Woman</string>
+    <string name="Growth">Growth</string>
 </resources>

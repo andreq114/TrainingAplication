@@ -26,4 +26,10 @@
     <string name="maxExercisesAlert">Osiągnięto maksymalną liczbę ćwiczeń.</string>
     <string name="deleteAlert">Czy na pewno chcesz usunąć dzień treningowy.</string>
     <string name="enterName">Wprowadź nazwę ćwiczenia:</string>
+    <string name="Weight">Waga</string>
+    <string name="Age">Wiek</string>
+    <string name="Growth">Wzrost</string>
+    <string name="Man">Mężczyzna</string>
+    <string name="Waist">Obwód pasa</string>
+    <string name="Woman">Kobieta</string>
 </resources>
