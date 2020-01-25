@@ -244,8 +244,6 @@ public class ExDisp_activity extends AppCompatActivity {
         TextView dayview = findViewById(R.id.day_name);
         TextView exview = findViewById(R.id.exercise_name);
         dayview.setText(useddayData.nameButton);
-        String name = getIntent().getStringExtra("Chosed");
-        useddayData = new Gson().fromJson(name, DayData.class);
         int rows = exercise.sets.size();
         //System.out.println(exercise.sets);
 
