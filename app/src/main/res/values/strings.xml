@@ -32,4 +32,7 @@
     <string name="Woman">Woman</string>
     <string name="Growth">Growth</string>
     <string name="toManyRows">You can\'t add more rows.</string>
+    <string name="deleteEx">Do you really want to delete this exercise?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

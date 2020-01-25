@@ -1,8 +1,10 @@
 package com.example.trainingapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -69,7 +71,25 @@ public class ExDisp_activity extends AppCompatActivity {
         nweight4 = findViewById(R.id.weight4);
     }
 
-    public void deleteExercise(View view){
+
+    public void clickDelete(View View){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(getResources().getString(R.string.deleteEx))
+                .setCancelable(false)
+                .setPositiveButton(getResources().getString(R.string.confirmDialog), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        deleteExercise();
+                    }
+                })
+                .setNegativeButton(getResources().getString(R.string.cancelDialog), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        alert.show();
+    }
+
+    public void deleteExercise(){
 
 
         DayData.ExerciseData chosed = null;

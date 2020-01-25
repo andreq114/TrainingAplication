@@ -33,4 +33,7 @@
     <string name="Waist">Obwód pasa</string>
     <string name="Woman">Kobieta</string>
     <string name="toManyRows">Osiągnieto maksymalną liczbe wierszy.</string>
+    <string name="deleteEx">Czy na pewno chcesz usunac to cwiczenie?</string>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
 </resources>
