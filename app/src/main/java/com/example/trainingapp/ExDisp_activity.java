@@ -247,38 +247,41 @@ public class ExDisp_activity extends AppCompatActivity {
         int rows = exercise.sets.size();
         //System.out.println(exercise.sets);
         try {
-            switch (rows) {
-                case 1:
-                    System.out.println("Wczytany 1 wiersz");
-                    nset1.setText(exercise.sets.get(0));
-                    nrepeat1.setText(exercise.repeats.get(0));
-                    nweight1.setText(exercise.weight.get(0));
+            for (int i = 1; i < rows; i++) {
+                switch (i) {
+                    case 1:
+                        System.out.println("Wczytany 1 wiersz");
+                        nset1.setText(exercise.sets.get(0));
+                        nrepeat1.setText(exercise.repeats.get(0));
+                        nweight1.setText(exercise.weight.get(0));
 
-                case 2:
-                    System.out.println("Wczytany 2 wiersz");
-                    nset2.setText(exercise.sets.get(1));
-                    nrepeat2.setText(exercise.repeats.get(1));
-                    nweight2.setText(exercise.weight.get(1));
-                    nset2.setVisibility(View.VISIBLE);
-                    nrepeat2.setVisibility(View.VISIBLE);
-                    nweight2.setVisibility(View.VISIBLE);
-                case 3:
-                    System.out.println("Wczytany 3 wiersz");
-                    nset3.setText(exercise.sets.get(2));
-                    nrepeat3.setText(exercise.repeats.get(2));
-                    nweight3.setText(exercise.weight.get(2));
-                    nset3.setVisibility(View.VISIBLE);
-                    nrepeat3.setVisibility(View.VISIBLE);
-                    nweight3.setVisibility(View.VISIBLE);
-                case 4:
-                    System.out.println("Wczytany 4 wiersz");
-                    nset4.setText(exercise.sets.get(3));
-                    nrepeat4.setText(exercise.repeats.get(3));
-                    nweight4.setText(exercise.weight.get(3));
-                    nset4.setVisibility(View.VISIBLE);
-                    nrepeat4.setVisibility(View.VISIBLE);
-                    nweight4.setVisibility(View.VISIBLE);
-            }
+                    case 2:
+                        System.out.println("Wczytany 2 wiersz");
+                        nset2.setText(exercise.sets.get(1));
+                        nrepeat2.setText(exercise.repeats.get(1));
+                        nweight2.setText(exercise.weight.get(1));
+                        nset2.setVisibility(View.VISIBLE);
+                        nrepeat2.setVisibility(View.VISIBLE);
+                        nweight2.setVisibility(View.VISIBLE);
+                    case 3:
+                        System.out.println("Wczytany 3 wiersz");
+                        nset3.setText(exercise.sets.get(2));
+                        nrepeat3.setText(exercise.repeats.get(2));
+                        nweight3.setText(exercise.weight.get(2));
+                        nset3.setVisibility(View.VISIBLE);
+                        nrepeat3.setVisibility(View.VISIBLE);
+                        nweight3.setVisibility(View.VISIBLE);
+                    case 4:
+                        System.out.println("Wczytany 4 wiersz");
+                        nset4.setText(exercise.sets.get(3));
+                        nrepeat4.setText(exercise.repeats.get(3));
+                        nweight4.setText(exercise.weight.get(3));
+                        nset4.setVisibility(View.VISIBLE);
+                        nrepeat4.setVisibility(View.VISIBLE);
+                        nweight4.setVisibility(View.VISIBLE);
+                }
+
+        }
         }catch(Exception ex){
 
         }
