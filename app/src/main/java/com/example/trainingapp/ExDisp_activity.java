@@ -77,6 +77,8 @@ public class ExDisp_activity extends AppCompatActivity {
             }
         }
         useddayData.exercises.remove(chosed);
+        useddayData.excercisesSet--;
+        System.out.println("Cwiczenia:"+useddayData.excercisesSet);
         SharedPreferences sharedPref = this.getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         Gson gson = new Gson();
@@ -91,6 +93,7 @@ public class ExDisp_activity extends AppCompatActivity {
         for (DayData day : dayData) {
             if (day.id==useddayData.id) {
                 day.exercises=useddayData.exercises;
+                day.excercisesSet=useddayData.excercisesSet;
                 break;
             }
         }

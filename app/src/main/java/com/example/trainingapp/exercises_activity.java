@@ -22,7 +22,7 @@ import java.util.List;
 
 public class exercises_activity extends AppCompatActivity {
 
-    int setExercises = 0;
+    int setExercises ;
     ArrayList<Button> buttons;
     DayData useddayData;
     ArrayList<DayData> dayData;
@@ -33,6 +33,7 @@ public class exercises_activity extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("Chosed");
         useddayData = new Gson().fromJson(name, DayData.class);
+        System.out.println("konstruktor");
 
         buttons = new ArrayList<>();
         buttons.add((Button)findViewById(R.id.ex1));
@@ -66,6 +67,8 @@ public class exercises_activity extends AppCompatActivity {
             }
         }
         setExercises= useddayData.excercisesSet;
+        System.out.println("Cwiczenia:"+setExercises+" ID:"+useddayData.id);
+
         TextView label = findViewById(R.id.exerciseLabel);
         label.setText(useddayData.nameButton);
         Short i = 0;
@@ -112,6 +115,7 @@ public class exercises_activity extends AppCompatActivity {
             System.out.println(day.id+" uzywane; "+useddayData.id);
             if (day.id==useddayData.id) {
                 day.exercises=useddayData.exercises;
+                day.excercisesSet=useddayData.excercisesSet;
                 System.out.println(" znalazl "+day.exercises);
                 break;
             }
@@ -126,6 +130,7 @@ public class exercises_activity extends AppCompatActivity {
     public void newActivity(DayData dayData, String name){
         Intent intent2 = new Intent(this,ExDisp_activity.class);
         String json = new Gson().toJson(dayData);
+        System.out.println("Cwiczenia:"+setExercises+" ID:"+dayData.id);
         intent2.putExtra("dayData_Excercises", json);
         intent2.putExtra("nazwa", name);
         startActivity(intent2);
@@ -171,6 +176,8 @@ public class exercises_activity extends AppCompatActivity {
                             }
                         });
                         setExercises++;
+                        System.out.println("Cwiczenia:"+setExercises);
+
                         DayData.ExerciseData temp = useddayData.new ExerciseData(inputName.getText().toString());
                         useddayData.exercises.add(temp);
                         newActivity(useddayData,temp.name);
