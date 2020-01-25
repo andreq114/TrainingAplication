@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -69,6 +70,8 @@ public class ExDisp_activity extends AppCompatActivity {
     }
 
     public void deleteExercise(View view){
+
+
         DayData.ExerciseData chosed = null;
         for (DayData.ExerciseData data : useddayData.exercises) {
             if (exerciseName.equals(data.name)){
@@ -206,6 +209,9 @@ public class ExDisp_activity extends AppCompatActivity {
                 nweight4.setText("");
                 nweight4.setVisibility(View.VISIBLE);
             }
+            else{
+                Toast.makeText(getApplicationContext(),getResources().getString(R.string.toManyRows),Toast.LENGTH_LONG).show();
+            }
         }
     }
 
@@ -247,7 +253,7 @@ public class ExDisp_activity extends AppCompatActivity {
         int rows = exercise.sets.size();
         //System.out.println(exercise.sets);
         try {
-            for (int i = 1; i < rows; i++) {
+            for (int i = 1; i <= rows; i++) {
                 switch (i) {
                     case 1:
                         System.out.println("Wczytany 1 wiersz");

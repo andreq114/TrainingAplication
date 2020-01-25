@@ -32,4 +32,5 @@
     <string name="Man">Mężczyzna</string>
     <string name="Waist">Obwód pasa</string>
     <string name="Woman">Kobieta</string>
+    <string name="toManyRows">Osiągnieto maksymalną liczbe wierszy.</string>
 </resources>

@@ -31,4 +31,5 @@
     <string name="Man">Man</string>
     <string name="Woman">Woman</string>
     <string name="Growth">Growth</string>
+    <string name="toManyRows">You can\'t add more rows.</string>
 </resources>
