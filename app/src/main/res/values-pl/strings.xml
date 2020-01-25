@@ -9,8 +9,8 @@
     <string name="kalkulator_BMI">Kalkulator BMI</string>
     <string name="kalkulator_BMR">Kalkulator BMR</string>
     <string name="kalkulator_tluszcz">Kalkulator tkanki tłuszczowej</string>
-    <string name="calculatorAge">Wprowadź swój wiek</string>
-    <string name="EnterWaist">Wprowadź swój obwód w pasie(cm)</string>
+    <string name="calculatorAge">Wprowadź swój wiek:</string>
+    <string name="EnterWaist">Wprowadź swój obwód w pasie(cm):</string>
     <string name="fatLabel">Tłuszcz %:</string>
     <string name="BMI_Discription_Underweight">Niedowaga</string>
     <string name="BMI_Discription_Normal_weight">Waga prawidłowa</string>
