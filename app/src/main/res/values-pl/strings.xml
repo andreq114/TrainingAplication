@@ -36,4 +36,10 @@
     <string name="deleteEx">Czy na pewno chcesz usunac to cwiczenie?</string>
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
+    <string name="save">ZAPISZ</string>
+    <string name="Edit">EDYTUJ</string>
+    <string name="sets">Serie</string>
+    <string name="repeats">Powtórzenia</string>
+    <string name="weight">Ciężar</string>
+    <string name="delete">Usuń</string>
 </resources>

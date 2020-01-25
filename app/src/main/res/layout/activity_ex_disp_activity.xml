@@ -48,20 +48,20 @@
 
             <TextView
                 android:id="@+id/set_title"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:background="?attr/colorButtonNormal"
-                android:text="Sets"
+                android:text="@string/sets"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/repeates_title"
-                android:layout_width="120dp"
+                android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:background="?attr/colorButtonNormal"
-                android:text="Repeats"
+                android:text="@string/repeats"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -71,7 +71,7 @@
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:background="?attr/colorButtonNormal"
-                android:text="Weight"
+                android:text="@string/weight"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -84,14 +84,14 @@
             <EditText
                 android:id="@+id/set1"
                 style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:background="@android:color/holo_orange_light"
                 android:clickable="false"
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Sets"
+                android:hint="@string/sets"
                 android:inputType="number|text|numberDecimal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -109,7 +109,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Repeats"
+                android:hint="@string/repeats"
                 android:inputType="number|text|numberDecimal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -127,7 +127,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Weight"
+                android:hint="@string/weight"
                 android:inputType="number|text|numberDecimal"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -143,14 +143,14 @@
             <EditText
                 android:id="@+id/set2"
                 style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:background="@android:color/holo_orange_light"
                 android:clickable="false"
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Sets"
+                android:hint="@string/sets"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -170,7 +170,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Repeats"
+                android:hint="@string/repeats"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -190,7 +190,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Weight"
+                android:hint="@string/weight"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -208,22 +208,22 @@
             <EditText
                 android:id="@+id/set3"
                 style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:background="@android:color/holo_orange_light"
                 android:clickable="false"
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Sets"
+                android:hint="@string/sets"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@android:color/background_dark"
                 android:textSize="25dp"
-                tools:layout_editor_absoluteY="456dp"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                tools:layout_editor_absoluteY="456dp" />
 
             <EditText
                 android:id="@+id/repeat3"
@@ -235,7 +235,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Repeats"
+                android:hint="@string/repeats"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -255,7 +255,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Weight"
+                android:hint="@string/weight"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -273,14 +273,14 @@
             <EditText
                 android:id="@+id/set4"
                 style="@style/Widget.AppCompat.AutoCompleteTextView"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:background="@android:color/holo_orange_light"
                 android:clickable="false"
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Sets"
+                android:hint="@string/sets"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -300,7 +300,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Repeats"
+                android:hint="@string/repeats"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -320,7 +320,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:fontFamily="sans-serif"
-                android:hint="Weight"
+                android:hint="@string/weight"
                 android:inputType="number|text|numberDecimal"
                 android:text="empty"
                 android:textAlignment="center"
@@ -363,7 +363,7 @@
         android:layout_marginTop="20dp"
         android:background="@android:color/darker_gray"
         android:onClick="editExercises"
-        android:text="EDIT"
+        android:text="@string/Edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
@@ -375,7 +375,7 @@
         android:layout_marginEnd="45dp"
         android:background="@android:color/darker_gray"
         android:onClick="saveExercises"
-        android:text="SAVE"
+        android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
@@ -392,19 +392,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/deleteButton"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="20dp"
-        android:onClick="clickDelete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:srcCompat="@drawable/deletebutton3" />
-
     <ImageView
         android:id="@+id/plusButton"
         android:layout_width="50dp"
@@ -415,5 +402,17 @@
         android:onClick="addRow"
         app:layout_constraintStart_toEndOf="@+id/edit_button"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="21dp"
+        android:onClick="clickDelete"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

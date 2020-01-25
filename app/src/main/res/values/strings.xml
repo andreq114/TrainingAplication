@@ -35,4 +35,10 @@
     <string name="deleteEx">Do you really want to delete this exercise?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="save">SAVE</string>
+    <string name="Edit">EDIT</string>
+    <string name="sets">Sets</string>
+    <string name="repeats">Repeats</string>
+    <string name="weight">Weight</string>
+    <string name="delete">Delete</string>
 </resources>
