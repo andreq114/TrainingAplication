@@ -49,6 +49,7 @@ public class ExDisp_activity extends AppCompatActivity {
         TextView ex_view = findViewById(R.id.exercise_name);
 
         System.out.println(exerciseName);
+        System.out.println(useddayData.excercisesSet);
         ex_view.setText(exerciseName);
 
         for (DayData.ExerciseData data : useddayData.exercises){
@@ -100,6 +101,7 @@ public class ExDisp_activity extends AppCompatActivity {
             }
         }
         useddayData.exercises.remove(chosed);
+        useddayData.excercisesSet--;
         System.out.println("Cwiczenia:"+useddayData.excercisesSet);
         SharedPreferences sharedPref = this.getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

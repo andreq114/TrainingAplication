@@ -177,7 +177,7 @@ public class exercises_activity extends AppCompatActivity {
                         });
                         setExercises++;
                         System.out.println("Cwiczenia:"+setExercises);
-
+                        useddayData.excercisesSet=setExercises;
                         DayData.ExerciseData temp = useddayData.new ExerciseData(inputName.getText().toString());
                         useddayData.exercises.add(temp);
                         newActivity(useddayData,temp.name);
