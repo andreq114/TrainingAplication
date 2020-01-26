@@ -354,4 +354,12 @@ public class ExDisp_activity extends AppCompatActivity {
 
     }
 
+    public void clickDone(View view){
+        exercise.status = DayData.Status.COMPLETE;
+    }
+
+    public void clickFail(View view){
+        exercise.status = DayData.Status.UNCOMPLETE;
+    }
+
 }

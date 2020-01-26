@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -65,6 +66,7 @@ public class exercises_activity extends AppCompatActivity {
                 break;
             }
         }
+
         setExercises= useddayData.excercisesSet;
         System.out.println("Cwiczenia:"+setExercises+" ID:"+useddayData.id);
 
@@ -73,26 +75,32 @@ public class exercises_activity extends AppCompatActivity {
         Short i = 0;
         ArrayList<DayData.ExerciseData> lista = useddayData.exercises;
         for(Button button : buttons) {
-            try {
-                System.out.println("Poszlo");
-                button.setOnClickListener(null);
-                button.setVisibility(View.INVISIBLE);
-                final String excercise = lista.get(i).name;
-                button.setText(excercise);
-                button.setVisibility(View.VISIBLE);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Add your code in here!
-                        newActivity(useddayData,excercise);
-                    }
-                });
-                i++;
+                try {
+                    System.out.println("Poszlo");
+                    button.setOnClickListener(null);
+                    button.setVisibility(View.INVISIBLE);
+                    final String excercise = lista.get(i).name;
+                    if(lista.get(i).status == DayData.Status.COMPLETE)
+                        button.setBackgroundColor(Color.GREEN);
+                    if(lista.get(i).status == DayData.Status.UNCOMPLETE)
+                        button.setBackgroundColor(Color.rgb(205,92,92));
+                    button.setText(excercise);
+                    button.setVisibility(View.VISIBLE);
 
-            }catch(Exception ex){
-                break;
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Add your code in here!
+                            newActivity(useddayData, excercise);
+                        }
+                    });
+                    i++;
+
+                } catch (Exception ex) {
+                    break;
+
             }
-            System.out.println("LICZBA CWICZEN:" + setExercises);
+            System.out.println("LICZBA CWICZEN:" + useddayData.nameButton);
         }
     }
 
@@ -116,7 +124,7 @@ public class exercises_activity extends AppCompatActivity {
             if (day.id==useddayData.id) {
                 day.exercises=useddayData.exercises;
                 day.excercisesSet=useddayData.excercisesSet;
-                System.out.println(" znalazl "+day.exercises);
+                System.out.println(" znalazl "+ day.exercises);
                 break;
             }
         }
