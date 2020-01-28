@@ -42,4 +42,6 @@
     <string name="repeats">Powtórzenia</string>
     <string name="weight">Ciężar</string>
     <string name="delete">Usuń</string>
+    <string name="done">Zaliczone</string>
+    <string name="fail">Niezaliczone</string>
 </resources>

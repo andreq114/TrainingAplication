@@ -41,4 +41,6 @@
     <string name="repeats">Repeats</string>
     <string name="weight">Weight</string>
     <string name="delete">Delete</string>
+    <string name="done">Done</string>
+    <string name="fail">Fail</string>
 </resources>
